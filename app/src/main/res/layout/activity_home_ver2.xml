@@ -271,6 +271,7 @@
 
 
     <FrameLayout
+        android:visibility="gone"
         android:id="@+id/card_change_user"
         android:layout_width="0dp"
         android:layout_height="0dp"

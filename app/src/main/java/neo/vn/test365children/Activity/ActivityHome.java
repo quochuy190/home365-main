@@ -52,6 +52,7 @@ import neo.vn.test365children.Activity.login.ActivityUpdateInforChil;
 import neo.vn.test365children.Activity.luyenthi.Activity_Menu_Luyenthi;
 import neo.vn.test365children.Activity.skill.Activity_Menu_Skill;
 import neo.vn.test365children.Activity.untility_menu.Activity_Information;
+import neo.vn.test365children.Activity.weeklyExercises.ActivityChoseBook;
 import neo.vn.test365children.Activity.weeklyExercises.ActivityWeeklyExer;
 import neo.vn.test365children.Adapter.AdapterUserLogin;
 import neo.vn.test365children.App;
@@ -127,6 +128,8 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
     ImageView img_back_ll_user;
     @BindView(R.id.imgChangeLever)
     ImageView img_change_child;
+    @BindView(R.id.imgStartHome)
+    ImageView imgStartHome;
     Realm mRealm;
     PresenterSticker mPresenter;
     PresenterBaitap mPresenterBaitap;
@@ -500,16 +503,16 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
             mRealm.beginTransaction();
             mRealm.copyToRealmOrUpdate(obj);
             mRealm.commitTransaction();
-            if (obj.getsFULLNAME() != null && obj.getsFULLNAME().length() > 0) {
+            if (obj.getsUSERNAME() != null && obj.getsUSERNAME().length() > 0) {
                 if (obj.getsLEVEL_ID() == null || obj.getsLEVEL_ID().length() == 0 || obj.getsLEVEL_ID().equals("0")) {
-                    tvNameHome.setText("MHS: "+obj.getsID());
+                    tvNameHome.setText("MHS: "+obj.getsUSERNAME());
                     tvLeverHome.setText("Lớp:");
                 } else {
-                    tvNameHome.setText("MHS: "+obj.getsID());
+                    tvNameHome.setText("MHS: "+obj.getsUSERNAME());
                     tvLeverHome.setText("Lớp: "+obj.getsLEVEL_ID());
                 }
             } else {
-                if (obj.getsUSERNAME() != null)
+                if (obj.getsID() != null)
                     if (obj.getsLEVEL_ID() == null || obj.getsLEVEL_ID().length() == 0 || obj.getsLEVEL_ID().equals("0")) {
                        // tv_title_bar.setText("Mã HS: " + obj.getsUSERNAME());
                         tvNameHome.setText("MHS: "+obj.getsID());
@@ -592,7 +595,7 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
             startActivity(callIntent);
         });
         img_avata.setOnClickListener(this);
-     /*   img_logout.setOnClickListener(new View.OnClickListener() {
+        imgStartHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDialogComfirm("Thông báo", "Bạn có chắc chắn muốn đăng xuất không?",
@@ -601,7 +604,7 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
                             public void onClickYesDialog() {
                                 SharedPrefs.getInstance().put(Constants.KEY_ISLOGIN, false);
                                 SharedPrefs.getInstance().put(Constants.KEY_IS_WELCOME, false);
-                                Intent intent = new Intent(ActivityHome.this, ActivityLogin.class);
+                                Intent intent = new Intent(ActivityHome.this, ActivityLoginNew.class);
                                 startActivity(intent);
                                 finish();
                             }
@@ -612,7 +615,7 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
                             }
                         });
             }
-        });*/
+        });
     }
 
 //    private void showChildChoose(){
@@ -664,7 +667,8 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
 //                    }
 //                }
 
-                startActivity(new Intent(ActivityHome.this, ActivityMenuBaitap.class));
+             //   startActivity(new Intent(ActivityHome.this, ActivityMenuBaitap.class));
+                startActivity(new Intent(ActivityHome.this, ActivityChoseBook.class));
 
 
                 break;

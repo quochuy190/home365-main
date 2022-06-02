@@ -19,13 +19,14 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <ImageView
+        app:srcCompat="@drawable/ic_avata_home"
         android:id="@+id/img_logo"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/guideline2"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.45"
+        app:layout_constraintHeight_percent="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -131,7 +132,7 @@
         android:layout_width="@dimen/item_back_kow"
         android:layout_height="@dimen/item_back_kow"
         android:layout_margin="@dimen/dp7"
-        android:src="@drawable/ic_back_menu"
+        android:src="@drawable/ic_back_new"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

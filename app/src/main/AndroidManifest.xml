@@ -58,6 +58,12 @@
         </activity>
 
         <activity
+            android:name=".Activity.weeklyExercises.ActivityChoseBook"
+            android:screenOrientation="sensorLandscape">
+
+        </activity>
+
+        <activity
             android:name=".Activity.weeklyExercises.ActivityWeeklyExer"
             android:screenOrientation="sensorLandscape">
 

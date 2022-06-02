@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
+import neo.vn.test365children.Activity.login.ActivityLoginNew;
 import neo.vn.test365children.Activity.login.ActivityWelcomApp;
 import neo.vn.test365children.Base.BaseActivity;
 import neo.vn.test365children.Config.Constants;
@@ -37,9 +38,9 @@ public class SplashScreen extends BaseActivity {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        boolean is_welcom_app = SharedPrefs.getInstance().get(Constants.KEY_IS_WELCOM_APP, Boolean.class);
+        boolean is_welcom_app = SharedPrefs.getInstance().get(Constants.KEY_ISLOGIN, Boolean.class);
         img_splash = (ImageView) findViewById(R.id.img_splash);
-        Glide.with(this).load(R.drawable.img_splash).into(img_splash);
+        Glide.with(this).load(R.drawable.bg_splash).into(img_splash);
         Intent deepLinkIntent = getIntent();
         String data = deepLinkIntent.getDataString();
         if (data != null){
@@ -57,7 +58,7 @@ public class SplashScreen extends BaseActivity {
         if (is_welcom_app) {
             mainIntent.setClass(SplashScreen.this, ActivityHome.class);
         } else {
-            mainIntent.setClass(SplashScreen.this, ActivityWelcomApp.class);
+            mainIntent.setClass(SplashScreen.this, ActivityLoginNew.class);
         }
         start_activity();
     }

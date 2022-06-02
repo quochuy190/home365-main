@@ -93,8 +93,7 @@ public class ActivitySelectLevelTry extends BaseActivity
     }
 
     private void initImage() {
-        Glide.with(this).load(R.drawable.bg_select_class).into(img_background);
-        Glide.with(this).load(R.drawable.ic_home365chil).into(img_logo);
+        Glide.with(this).load(R.drawable.bg_home).into(img_background);
     }
 
     @Override

@@ -6,8 +6,17 @@
     android:background="@android:color/white">
 
     <ImageView
+        android:src="@drawable/bg_splash"
         android:id="@+id/img_splash"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleType="centerCrop" />
+        android:scaleType="fitXY" />
+    <ImageView
+
+        android:src="@mipmap/ic_launcher"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:scaleType="fitXY" />
 </RelativeLayout>

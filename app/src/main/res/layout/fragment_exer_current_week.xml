@@ -16,8 +16,9 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
     </androidx.recyclerview.widget.RecyclerView>
+
     <TextView
-        android:text="Bạn đã hoàn thành hết bài tập các tuần trước"
+        android:text="Bạn đã làm hết bài tập tuần này, mời bạn làm tiếp vào tuần sau nhé"
         android:id="@+id/txt_notify_need"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -34,5 +35,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

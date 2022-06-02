@@ -235,7 +235,7 @@ public class ActivityLoginNew extends BaseActivity implements ImlLoginNew.View, 
                 login();
                 break;
             case R.id.txtForgotPass:
-                forgotPass();
+                //forgotPass();
                 break;
             case R.id.imgBack:
                 startActivity(new Intent(ActivityLoginNew.this, ActivityHome.class));

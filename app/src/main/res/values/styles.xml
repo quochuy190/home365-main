@@ -49,8 +49,8 @@
     </style>
 
     <style name="TabLayoutStyleElevator" parent="Base.Widget.Design.TabLayout">
-        <item name="android:textSize">@dimen/text_15sp</item>
-        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/text_16sp</item>
+        <item name="android:textAllCaps">true</item>
         <item name="android:textColor">@color/black</item>
     </style>
 
