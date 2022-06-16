@@ -151,6 +151,7 @@
     <!--</LinearLayout>
 </android.support.v4.widget.NestedScrollView>-->
     <Button
+        android:visibility="gone"
         app:layout_constraintWidth_percent="0.26"
         app:layout_constraintHeight_percent="0.09"
         android:textSize="@dimen/text_13sp"

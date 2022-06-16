@@ -14,7 +14,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Baitap_Tuan implements Parcelable {
+public class Baitap_Tuan implements Parcelable,  Comparable<Baitap_Tuan> {
     @SerializedName("ERROR")
     String sERROR;
     @SerializedName("MESSAGE")
@@ -71,6 +71,8 @@ public class Baitap_Tuan implements Parcelable {
     String sENGLISH_TAKEN_DURATION;
     @SerializedName("STATUS_TAKEN")
     String sSTATUS_TAKEN;
+    @SerializedName("BOOK_ID")
+    String BOOK_ID;
 
     public Baitap_Tuan() {
     }
@@ -116,6 +118,14 @@ public class Baitap_Tuan implements Parcelable {
             return new Baitap_Tuan[size];
         }
     };
+
+    public String getBOOK_ID() {
+        return BOOK_ID;
+    }
+
+    public void setBOOK_ID(String BOOK_ID) {
+        this.BOOK_ID = BOOK_ID;
+    }
 
     public String getsYEAR_NAME() {
         return sYEAR_NAME;
@@ -394,5 +404,21 @@ public class Baitap_Tuan implements Parcelable {
     }
 
 
+    @Override
+    public int compareTo(Baitap_Tuan exer2) {
+        try {
+            int number1 = Integer.parseInt(exer2.sWEEK_ID);
+            int number2 = Integer.parseInt(sWEEK_ID);
+            if (number1 == number2)
+                return 0;
+            else if (number1 > number2)
+                return 1;
+            else
+                return -1;
+        }catch (Exception e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
 }
 

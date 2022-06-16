@@ -45,12 +45,14 @@ public class PresenterRegister {
         void showSuccessRegister();
     }
 
-    public void apiRegister(String fullName, String phone, String pass, String uuid) {
+    public void apiRegister(String sClassId, String sCodePupil, String sSchoolId, String pass, String uuid) {
 
         final Map<String, String> mMap = new LinkedHashMap<>();
         String sTokenkey = SharedPrefs.getInstance().get(Constants.KEY_TOKEN, String.class);
         String sService = "/child/init";
-        mMap.put("PHONE", phone);
+        mMap.put("SCHOOLID", sSchoolId);
+        mMap.put("CLASSID", sClassId);
+        mMap.put("PERSIONID", sCodePupil);
         mMap.put("PASS", pass);
         mMap.put("APP_VERSION", BuildConfig.VERSION_NAME);
         mMap.put("DEVICE_MODEL",  android.os.Build.BRAND + "_" + android.os.Build.MODEL);
@@ -59,7 +61,7 @@ public class PresenterRegister {
         if (sTokenkey!=null&&sTokenkey.length()>0){
             mMap.put("TOKEN_KEY", sTokenkey);
         }else
-            mMap.put("TOKEN_KEY", "tokenkeytestdsfdsjlajfdaadfjdlajdfadsffsfsgsgj");
+            mMap.put("TOKEN_KEY", "tokenkeytest");
         mMap.put("UUID", uuid);
         mMap.put("PARENT_ID", "");
         mView.onShowProgressDialog();

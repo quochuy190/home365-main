@@ -2,6 +2,7 @@ package neo.vn.test365children.Activity.weeklyExercises;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -20,6 +21,7 @@ import neo.vn.test365children.Activity.CustomViewPager;
 import neo.vn.test365children.Adapter.AdapterBoSach;
 import neo.vn.test365children.Adapter.AdapterItemMenuLambaitap;
 import neo.vn.test365children.Adapter.AdapterViewpager;
+import neo.vn.test365children.App;
 import neo.vn.test365children.Base.BaseActivity;
 import neo.vn.test365children.Config.Constants;
 import neo.vn.test365children.Listener.ItemClickListener;
@@ -41,7 +43,7 @@ public class ActivityChoseBook extends BaseActivity {
     ImageView img_back;
     List<BoSach> lisBaitap;
     AdapterBoSach mAdapter;
-
+    Baitap_Tuan objBaitapTuan;
     @Override
     public int setContentViewId() {
         return R.layout.activity_selected_book;
@@ -50,8 +52,13 @@ public class ActivityChoseBook extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initData();
         initChonSach();
         initEvent();
+    }
+
+    private void initData() {
+        objBaitapTuan = getIntent().getParcelableExtra(Constants.KEY_SEND_BAITAPTUAN);
     }
 
     private void initEvent() {
@@ -64,10 +71,17 @@ public class ActivityChoseBook extends BaseActivity {
     }
 
     private void initChonSach() {
+        if (objBaitapTuan==null)
+            return;
         lisBaitap = new ArrayList<>();
-        lisBaitap.add(new BoSach("Cánh diều", R.drawable.canh_dieu));
-        lisBaitap.add(new BoSach("Kết nối tri thức", R.drawable.ketnoitrithuc));
-
+        if (objBaitapTuan.getsSUBJECT_ID().equals("3")){
+            lisBaitap.add(new BoSach(3,"i-Learn Smart Start", R.drawable.img_i_learn));
+            lisBaitap.add(new BoSach(4,"Tiếng Anh (NXB)", R.drawable.img_ta_nhaxuatban));
+        }else {
+            lisBaitap.add(new BoSach(1,"Bộ sách cánh diều", R.drawable.canh_dieu));
+            lisBaitap.add(new BoSach(2,"Bộ sách kết nối tri thức", R.drawable.ketnoitrithuc));
+        }
+        Log.e("TAG", "initChonSach: "+App.mBaiTapTuan.size() );
         mAdapter = new AdapterBoSach(lisBaitap, this);
         //    recycleBaitap.setNestedScrollingEnabled(false);
         rcvChonSach.setHasFixedSize(true);
@@ -75,7 +89,9 @@ public class ActivityChoseBook extends BaseActivity {
         mAdapter.setOnIListener(new ItemClickListener() {
             @Override
             public void onClickItem(int position, Object item) {
-                Intent intent = new Intent(ActivityChoseBook.this, ActivityWeeklyExer.class);
+                BoSach obBoSach = (BoSach) item;
+                Intent intent = new Intent(ActivityChoseBook.this, ActivityBaitapChonsach.class);
+                intent.putExtra(Constants.KEY_SEND_ID_BOSACH, obBoSach.getId());
                 startActivity(intent);
             }
         });

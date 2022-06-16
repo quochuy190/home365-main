@@ -23,7 +23,7 @@
         android:gravity="center"
         android:text="Tiếng việt - Tuần 1"
         android:textColor="@color/black"
-        android:textSize="@dimen/txt_menu_baitap" />
+        android:textSize="@dimen/text_16sp" />
 
 
 </RelativeLayout>

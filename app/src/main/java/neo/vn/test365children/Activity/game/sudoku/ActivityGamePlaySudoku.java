@@ -508,7 +508,7 @@ public class ActivityGamePlaySudoku extends BaseActivity implements View.OnClick
     public void play_false() {
         //mp3 = new MediaPlayer();
         mPlayer_Anwser.release();
-        mPlayer_Anwser = MediaPlayer.create(this, R.raw.sau_laughing_cut);
+        mPlayer_Anwser = MediaPlayer.create(this, R.raw.false_te);
         mPlayer_Anwser.setLooping(false);
         mPlayer_Anwser.setVolume(20, 20);
         mPlayer_Anwser.start();

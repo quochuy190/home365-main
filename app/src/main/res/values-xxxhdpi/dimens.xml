@@ -47,7 +47,7 @@
     <dimen name="txt_menu_baitap">15sp</dimen>
     <!--activity làm bài tập-->
     <dimen name="text_content_cauhoi">17sp</dimen>
-    <dimen name="image_next">45dp</dimen>
+    <dimen name="image_next">40dp</dimen>
     <dimen name="margin_top_lambai">10dp</dimen>
     <dimen name="margin_left_lambai">50dp</dimen>
     <dimen name="icon_point_lambai">45dp</dimen>
@@ -80,14 +80,14 @@
     <dimen name="margin_egg_3">340dp</dimen>
     <dimen name="margin_egg_4">510dp</dimen>
     <dimen name="txt_xeptrung">18sp</dimen>
-    <dimen name="hight_egg_dapan">135dp</dimen>
+    <dimen name="hight_egg_dapan">110dp</dimen>
     <dimen name="pading_egg">23dp</dimen>
     <!--view chào mừng-->
     <dimen name="hight_img_chaomung">90dp</dimen>
     <dimen name="margin_top_chaomung">10dp</dimen>
     <dimen name="text_content_chaomung">18sp</dimen>
     <!--giải cứu công chúa-->
-    <dimen name="item_congchua">95dp</dimen>
+    <dimen name="item_congchua">75dp</dimen>
     <dimen name="item_dapan">155dp</dimen>
     <!--Bài tập tuần đã làm-->
     <dimen name="item_baitaptuan_dalam">110dp</dimen>
@@ -131,8 +131,8 @@
     <dimen name="icon_stt_bxh">45dp</dimen>
     <!--Chỉnh sửa bắt sâu-->
     <dimen name="btn_showpoint_width">160dp</dimen>
-    <dimen name="btn_showpoint_hight">35dp</dimen>
-    <dimen name="txt_showpoint">16sp</dimen>
+    <dimen name="btn_showpoint_hight">40dp</dimen>
+    <dimen name="txt_showpoint">17sp</dimen>
 
     <!--Game tính nhanh nhớ lâu-->
     <dimen name="hight_point_time_tnnl">60dp</dimen>
@@ -157,7 +157,7 @@
     <dimen name="width_logo">260dp</dimen>
     <dimen name="height_logo">100dp</dimen>
     <dimen name="margin_list_user">110dp</dimen>
-    <dimen name="text_lable_lambai">20sp</dimen>
+    <dimen name="text_lable_lambai">21sp</dimen>
     <!--Xem lại bài tập-->
     <dimen name="txt_lable_exer">22sp</dimen>
     <dimen name="img_avata_home">55dp</dimen>
@@ -205,7 +205,7 @@
     <dimen name="margin_item_kow_easy">3dp</dimen>
     <dimen name="txt_kow_easy">27sp</dimen>
     <dimen name="margin_item_menu_untility">10dp</dimen>
-    <dimen name="txt_menu_utility_name">13sp</dimen>
+    <dimen name="txt_menu_utility_name">16sp</dimen>
     <dimen name="txt_title_menu_exer">16sp</dimen>
     <dimen name="txt_detail_untilities">17sp</dimen>
 

@@ -9,6 +9,9 @@ import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
+
+import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
@@ -171,5 +174,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.notify(1251, notificationBuilder.build());
         }
+    }
+    @Override
+    public void onNewToken(@NonNull String token) {
+        Log.d("TAG", "onNewToken: " + token);
+
+        // If you want to send messages to this application instance or
+        // manage this apps subscriptions on the server side, send the
+        // FCM registration token to your app server.
+        SharedPrefs.getInstance().put(Constants.KEY_TOKEN, token);
+
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Baitap12BG</string>
+    <string name="app_name">BG HOMESCHOOL</string>
     <string name="btn_chamdiem">Chấm điểm</string>
     <string name="txt_loading_dialog">Đang tải. Vui lòng đợi...</string>
     <!--error-->
@@ -49,6 +49,7 @@ Mỗi tuần chỉ chơi một lần vào bất kỳ ngày nào.
     <string name="txt_quenmatkhau"><b><u><i>Quên mã học sinh</i></u></b></string>
     <string name="txt_dangky">Đăng ký tài khoản</string>
     <string name="txt_login">Đăng nhập</string>
+    <string name="change_pass">Đổi mật khẩu</string>
     <string name="txt_login_guild">Đã có tài khoản, Đăng nhập</string>
     <string name="txt_content_feedback">Cảm ơn con, hãy giữ kiên trì rèn luyện hàng ngày  cùng Home365 để đạt được thành công nhé.
 </string>
@@ -109,11 +110,17 @@ Công ty Cổ phần Đầu tư Phát triển Công nghệ và Truyền thông\n
     <string name="txt_login_title">Vui lòng nhập tài khoản của bạn ở đây</string>
     <string name="txt_register_title">Hoàn thành đăng ký để có hành trình 7 ngày học thử toàn bộ chương trình </string>
     <string name="lable_fullname">Họ và tên học sinh * </string>
+    <string name="lable_district">Quận/huyện * </string>
+    <string name="lable_shools">Chọn trường * </string>
+    <string name="lable_pupil">Mã học sinh * </string>
     <string name="lable_phone">Số điện thoại *</string>
     <string name="lable_pass">Mật khẩu *</string>
     <string name="lable_pass_conrifm">Nhập lại mật khẩu *</string>
     <string name="btn_register">Đăng ký</string>
     <string name="hint_fullname">Họ và tên</string>
+    <string name="hint_distric">Quận/huyện</string>
+    <string name="hint_shools">Trường học</string>
+    <string name="hint_pupil">Mã học sinh</string>
     <string name="hint_phone">Số điện thoại</string>
     <string name="hint_pass">Nhập mật khẩu</string>
     <string name="error_fullname">Bạn chưa nhập vào họ tên</string>
@@ -130,4 +137,8 @@ Công ty Cổ phần Đầu tư Phát triển Công nghệ và Truyền thông\n
     <string name="title_change_pass">Đổi mật khẩu</string>
     <string name="txt_luyenthi_lable">Bài tập tuần</string>
     <string name="txt_kynang_lable">Bài tập tuần</string>
+    <string name="error_pass_old">Bạn chưa nhập vào mật khẩu cũ</string>
+    <string name="error_pass_new">Bạn chưa nhập vào mật khẩu mới</string>
+    <string name="error_pass_not_same">Mật khẩu cũ chưa chính xác</string>
+    <string name="error_passconfirm_not_same">Mật khẩu xác nhận chưa chính xác</string>
 </resources>

@@ -191,7 +191,7 @@ public class FragmentChondapanDungReview extends BaseFragment
             }
         });
         if (mCauhoi.getsANSWER_CHILD() != null && mCauhoi.getsANSWER_CHILD().length() > 0) {
-            setImageFalse(sAnwser);
+            setImageFalse(mCauhoi.getsANSWER_CHILD());
         } else
             setImageFalse("");
 

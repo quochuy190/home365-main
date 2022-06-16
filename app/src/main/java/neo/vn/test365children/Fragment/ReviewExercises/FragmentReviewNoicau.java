@@ -363,7 +363,7 @@ public class FragmentReviewNoicau extends BaseFragment {
                     initWebview(webview_dapannoicau_A_1, StringUtil.convert_html(mLisQuestion_A.get(0)));
                 else
                     rl_dapanA_1.setVisibility(View.GONE);
-           /* if (mLisQuestion_A.get(1) != null)
+            if (mLisQuestion_A.get(1) != null)
                 initWebview(webview_dapannoicau_A_2, StringUtil.convert_html(mLisQuestion_A.get(1)));
             else
                 rl_dapanA_2.setVisibility(View.GONE);
@@ -390,7 +390,7 @@ public class FragmentReviewNoicau extends BaseFragment {
             if (mLisQuestionr_B.get(3) != null)
                 initWebview(webview_dapannoicau_B_4, StringUtil.convert_html(mLisQuestionr_B.get(3)));
             else
-                rl_dapanB_4.setVisibility(View.GONE);*/
+                rl_dapanB_4.setVisibility(View.GONE);
             } else {
                 ll_questioln.setVisibility(View.GONE);
             }

@@ -80,7 +80,7 @@
     <dimen name="margin_egg_3">510dp</dimen>
     <dimen name="margin_egg_4">765dp</dimen>
     <dimen name="txt_xeptrung">25sp</dimen>
-    <dimen name="hight_egg_dapan">240dp</dimen>
+    <dimen name="hight_egg_dapan">220dp</dimen>
     <dimen name="pading_egg">33dp</dimen>
     <!--view chào mừng-->
     <dimen name="hight_img_chaomung">120dp</dimen>
@@ -131,8 +131,8 @@
     <dimen name="icon_stt_bxh">45dp</dimen>
     <!--Chỉnh sửa bắt sâu-->
     <dimen name="btn_showpoint_width">250dp</dimen>
-    <dimen name="btn_showpoint_hight">45dp</dimen>
-    <dimen name="txt_showpoint">17sp</dimen>
+    <dimen name="btn_showpoint_hight">55dp</dimen>
+    <dimen name="txt_showpoint">18sp</dimen>
     <!--Game tính nhanh nhớ lâu-->
     <dimen name="hight_point_time_tnnl">80dp</dimen>
     <dimen name="icon_time_game_tnnl">70dp</dimen>
@@ -156,7 +156,7 @@
     <dimen name="width_logo">320dp</dimen>
     <dimen name="height_logo">130dp</dimen>
     <dimen name="margin_list_user">200dp</dimen>
-    <dimen name="text_lable_lambai">25sp</dimen>
+    <dimen name="text_lable_lambai">27sp</dimen>
     <!--Xem lại bài tập-->
     <dimen name="txt_lable_exer">27sp</dimen>
     <dimen name="img_avata_home">100dp</dimen>
@@ -207,7 +207,7 @@
     <dimen name="txt_kow_easy">38sp</dimen>
 
     <dimen name="margin_item_menu_untility">15dp</dimen>
-    <dimen name="txt_menu_utility_name">16sp</dimen>
+    <dimen name="txt_menu_utility_name">18sp</dimen>
     <dimen name="txt_title_menu_exer">22sp</dimen>
     <dimen name="txt_detail_untilities">22sp</dimen>
 

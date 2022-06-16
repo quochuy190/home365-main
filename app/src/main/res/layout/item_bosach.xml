@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="@dimen/dp5"
+    android:layout_margin="@dimen/dp7"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white">
 
@@ -16,9 +16,10 @@
         android:layout_height="match_parent">
 
         <TextView
+           android:textStyle="bold"
             android:layout_marginTop="@dimen/dp5"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text_16sp"
+            android:textColor="#44B86F"
+            android:textSize="@dimen/text_17sp"
             android:id="@+id/tvNameBook"
             android:gravity="center"
             tools:text="Cánh diều"
@@ -32,12 +33,29 @@
             android:id="@+id/imgBook"
 
             android:layout_margin="@dimen/dp5"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btnChonSach"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvNameBook"
             android:layout_width="match_parent"
             android:layout_height="0dp"/>
+
+        <Button
+            app:layout_constraintWidth_percent="0.5"
+            android:visibility="visible"
+            android:id="@+id/btnChonSach"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp30"
+            android:layout_marginBottom="@dimen/dp3"
+            android:background="@drawable/spr_button_red_click"
+            android:fontFamily="@font/roboto_bold"
+            android:padding="@dimen/dp5"
+            android:text="Chọn"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

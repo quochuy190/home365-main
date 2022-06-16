@@ -28,6 +28,7 @@
 <!--            android:name="com.google.android.gms.ads.APPLICATION_ID"-->
 <!--            android:value="ca-app-pub-9286300864046388~2008626214"/>-->
         <activity
+            android:exported="true"
             android:name=".Activity.SplashScreen"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="sensorLandscape">
@@ -51,6 +52,12 @@
             android:name=".Activity.login.auth.PhoneAuthActivity">
 
         </activity>
+
+        <activity
+            android:screenOrientation="sensorLandscape"
+            android:name=".Activity.weeklyExercises.ActivityBaitapChonsach">
+
+        </activity>
         <activity
             android:name=".Activity.login.ActivityGuildPractice"
             android:screenOrientation="sensorLandscape">
@@ -59,6 +66,12 @@
 
         <activity
             android:name=".Activity.weeklyExercises.ActivityChoseBook"
+            android:screenOrientation="sensorLandscape">
+
+        </activity>
+
+        <activity
+            android:name=".Activity.login.ActivityChangePass"
             android:screenOrientation="sensorLandscape">
 
         </activity>
@@ -274,6 +287,8 @@
             android:configChanges="orientation|screenSize"
             android:screenOrientation="sensorLandscape"></activity>
         <activity
+            android:windowSoftInputMode="adjustResize"
+            android:fitsSystemWindows="true"
             android:hardwareAccelerated="true"
             android:name=".Activity.ActivityLambaitap"
             android:configChanges="orientation|screenSize"

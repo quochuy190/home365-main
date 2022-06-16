@@ -12,6 +12,7 @@ import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import neo.vn.test365children.Models.Baitap_Tuan;
 import neo.vn.test365children.Models.Cauhoi;
 import neo.vn.test365children.Models.City;
 import neo.vn.test365children.Models.DetailExercise;
@@ -40,6 +41,7 @@ public class App extends Application {
     public static List<Schools> mLisSchools;
 
     public static List<Cauhoi> mLisCauhoi;
+    public static List<Baitap_Tuan> mBaiTapTuan;
     public static List<GameTrieuPhuTriThuc> mLisGameTPTT;
     public static ExerciseAnswer mExercise;
     public static ExerciseAnswer mExerciseReview;
@@ -57,6 +59,7 @@ public class App extends Application {
         createNotificationChannel();
         sInstance = this;
         mGSon = new Gson();
+        mBaiTapTuan = new ArrayList<>();
         mLisDistrict = new ArrayList<>();
         mLisCity = new ArrayList<>();
         mLisSchools = new ArrayList<>();

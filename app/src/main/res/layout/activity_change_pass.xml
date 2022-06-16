@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llLoginInput"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin_top_login"
+        android:background="@drawable/spr_bg_login"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.85"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.6">
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/dp10"
+            android:padding="@dimen/dp5"
+            android:id="@+id/txtTitleLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_change_pass"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_14sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHeight_percent="0.12"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+        <RelativeLayout
+            android:id="@+id/llPassOld"
+            android:layout_marginTop="@dimen/dp10"
+            app:layout_constraintWidth_percent="0.8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/spr_login_edt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.15"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitleLogin">
+
+            <ImageView
+                android:id="@+id/img_user_con"
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp5"
+                android:padding="@dimen/dp5"
+                android:src="@drawable/icon_password" />
+
+            <EditText
+                android:id="@+id/edtPassOld"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp5"
+                android:layout_toRightOf="@id/img_user_con"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:hint="Mật khẩu cũ"
+                android:imeOptions="flagNoFullscreen|actionNext"
+                android:inputType="textPassword"
+                android:padding="@dimen/dp7"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="@dimen/text_login" />
+
+            <ImageView
+                android:id="@+id/imgShowPassOld"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp5"
+                android:layout_marginRight="@dimen/dp5"
+                android:padding="@dimen/dp5"
+                android:src="@drawable/ic_eye_hide"
+                android:tint="@color/gray" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            app:layout_constraintWidth_percent="0.8"
+            android:id="@+id/llPassNew"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dp15"
+            android:background="@drawable/spr_login_edt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.15"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llPassOld">
+
+            <ImageView
+                android:id="@+id/imgPassWord"
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp5"
+                android:padding="@dimen/dp5"
+                android:src="@drawable/icon_password" />
+
+            <EditText
+                android:focusable="true"
+                android:id="@+id/edtPassNew"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp5"
+                android:layout_toRightOf="@id/imgPassWord"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:hint="Mật khẩu mới"
+                android:imeOptions="flagNoFullscreen|actionDone"
+                android:inputType="textPassword"
+                android:padding="@dimen/dp7"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="@dimen/text_login" />
+
+            <ImageView
+                android:id="@+id/imgShowPass"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp5"
+                android:layout_marginRight="@dimen/dp5"
+                android:padding="@dimen/dp5"
+                android:src="@drawable/ic_eye_hide"
+                android:tint="@color/gray" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            app:layout_constraintWidth_percent="0.8"
+            android:id="@+id/llPassConfirm"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dp15"
+            android:background="@drawable/spr_login_edt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.15"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llPassNew">
+
+            <ImageView
+                android:id="@+id/imgPassWordConfirm"
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp5"
+                android:padding="@dimen/dp5"
+                android:src="@drawable/icon_password" />
+
+            <EditText
+                android:focusable="true"
+                android:id="@+id/edtPassConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp5"
+                android:layout_toRightOf="@id/imgPassWordConfirm"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:hint="Xác nhận mật khẩu"
+                android:imeOptions="flagNoFullscreen|actionDone"
+                android:inputType="textPassword"
+                android:padding="@dimen/dp7"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:textSize="@dimen/text_login" />
+
+            <ImageView
+                android:id="@+id/imgShowPassConfirm"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp5"
+                android:layout_marginRight="@dimen/dp5"
+                android:padding="@dimen/dp5"
+                android:src="@drawable/ic_eye_hide"
+                android:tint="@color/gray" />
+
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/btnChangePass"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/spr_button_oragen_click"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/change_pass"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_login"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.15"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/llPassConfirm"
+            app:layout_constraintWidth_percent="0.5" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+
+        android:id="@+id/imgBack"
+        android:layout_width="@dimen/dp40"
+        android:layout_height="@dimen/dp40"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_back_new"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

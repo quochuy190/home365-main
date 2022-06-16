@@ -55,6 +55,7 @@
     </LinearLayout>
 
     <Button
+        android:visibility="gone"
         android:id="@+id/btn_xemdiem"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -65,7 +66,6 @@
         android:text="@string/txt_showpoint"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_showpoint"
-        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHeight_percent="0.08"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -85,6 +85,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ll_lable">
 
         <androidx.core.widget.NestedScrollView
+            android:layout_marginBottom="@dimen/dp10"
             android:id="@+id/scroll_read_text"
             android:layout_width="0dp"
             android:layout_height="match_parent"

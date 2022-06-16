@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -33,6 +34,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -144,6 +148,7 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseMessaging.getInstance().setAutoInitEnabled(true);
         String sTokenkey = SharedPrefs.getInstance().get(Constants.KEY_TOKEN, String.class);
         Log.e(TAG, "onCreate: token: " + sTokenkey);
         // play_music_bg();
@@ -389,67 +394,71 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
     private boolean isPlayingExer;
 
     private void initCheckExerPlaying() {
-        String sSubject = "";
-        String sWeek;
-        isPlayingExer = SharedPrefs.getInstance().get(Constants.KEY_SAVE_PLAYING_EXER, Boolean.class);
-        String json = SharedPrefs.getInstance().get(Constants.KEY_SAVE_LIST_EXER_PLAYING, String.class);
-        sUserMe = SharedPrefs.getInstance().get(Constants.KEY_USER_ME, String.class);
-        sUserCon = SharedPrefs.getInstance().get(Constants.KEY_USER_CON, String.class);
-        if (isPlayingExer && json != null && json.length() > 0) {
-            Gson gson = new Gson(); // Or use new GsonBuilder().create();
-            objExer = gson.fromJson(json, ExerciseAnswer.class);
-            if (objExer != null && objExer.getsMonhoc() != null) {
-                switch (objExer.getsMonhoc()) {
-                    case "1":
-                        sSubject = "Toán";
-                        break;
-                    case "2":
-                        sSubject = "Tiếng Việt";
-                        break;
-                    case "3":
-                        sSubject = "Tiếng Anh";
-                        break;
-                }
-            }
-            if (sUserMe != null && sUserCon != null) {
-                if (objExer.getsId_userMe() != null && objExer.getsId_userCon() != null) {
-                    if (sUserMe.equals(objExer.getsId_userMe()) && sUserCon.equals(objExer.getsId_userCon())) {
-                        showDialogComfirm("Thông báo", "Bài tập môn " + sSubject + " tuần " + objExer.getsIdTuan()
-                                + " chưa hoàn thành bạn có muốn tiếp tục làm bài không?", true, new ClickDialog() {
-                            @Override
-                            public void onClickYesDialog() {
-                                ExerciseAnswer obj = objExer;
-                                obj.setsTimebatdaulambai(get_current_time());
-                                // Trạng thái làm bài 0: chưa làm, 1: bắt đầu làm bài: 2: đã làm bài xong 3: đã nộp bài
-                                obj.setIsTrangthailambai("1");
-                                obj.setsStatus_Play("1");
-                                mRealm.beginTransaction();
-                                mRealm.copyToRealmOrUpdate(objExer);
-                                mRealm.commitTransaction();
-                                Intent intent = new Intent(ActivityHome.this, ActivityLambaitap.class);
-                                App.sTime = objExer.getsThoiluonglambai();
-                                mLisCauhoi.addAll(objExer.getmLisCauhoi());
-                                intent.putExtra(Constants.KEY_SEND_EXER_AGAIN, true);
-                                App.mExercise = obj;
-                                startActivity(intent);
-                            }
-
-                            @Override
-                            public void onClickNoDialog() {
-                                showDialogLoading();
-                                objExer.setIsTrangthailambai("2");
-                                mRealm.beginTransaction();
-                                mRealm.copyToRealmOrUpdate(objExer);
-                                mRealm.commitTransaction();
-                                nopbai();
-                                SharedPrefs.getInstance().put(Constants.KEY_SAVE_PLAYING_EXER, false);
-                                SharedPrefs.getInstance().put(Constants.KEY_SAVE_LIST_EXER_PLAYING, null);
-                            }
-                        });
+        try {
+            String sSubject = "";
+            String sWeek;
+            isPlayingExer = SharedPrefs.getInstance().get(Constants.KEY_SAVE_PLAYING_EXER, Boolean.class);
+            String json = SharedPrefs.getInstance().get(Constants.KEY_SAVE_LIST_EXER_PLAYING, String.class);
+            sUserMe = SharedPrefs.getInstance().get(Constants.KEY_USER_ME, String.class);
+            sUserCon = SharedPrefs.getInstance().get(Constants.KEY_USER_CON, String.class);
+            if (isPlayingExer && json != null && json.length() > 0) {
+                Gson gson = new Gson(); // Or use new GsonBuilder().create();
+                objExer = gson.fromJson(json, ExerciseAnswer.class);
+                if (objExer != null && objExer.getsMonhoc() != null) {
+                    switch (objExer.getsMonhoc()) {
+                        case "1":
+                            sSubject = "Toán";
+                            break;
+                        case "2":
+                            sSubject = "Tiếng Việt";
+                            break;
+                        case "3":
+                            sSubject = "Tiếng Anh";
+                            break;
                     }
                 }
+                if (sUserMe != null && sUserCon != null) {
+                    if (objExer.getsId_userMe() != null && objExer.getsId_userCon() != null) {
+                        if (sUserMe.equals(objExer.getsId_userMe()) && sUserCon.equals(objExer.getsId_userCon())) {
+                            showDialogComfirm("Thông báo", "Bài tập môn " + sSubject + " tuần " + objExer.getsIdTuan()
+                                    + " chưa hoàn thành bạn có muốn tiếp tục làm bài không?", true, new ClickDialog() {
+                                @Override
+                                public void onClickYesDialog() {
+                                    ExerciseAnswer obj = objExer;
+                                    obj.setsTimebatdaulambai(get_current_time());
+                                    // Trạng thái làm bài 0: chưa làm, 1: bắt đầu làm bài: 2: đã làm bài xong 3: đã nộp bài
+                                    obj.setIsTrangthailambai("1");
+                                    obj.setsStatus_Play("1");
+                                    mRealm.beginTransaction();
+                                    mRealm.copyToRealmOrUpdate(objExer);
+                                    mRealm.commitTransaction();
+                                    Intent intent = new Intent(ActivityHome.this, ActivityLambaitap.class);
+                                    App.sTime = objExer.getsThoiluonglambai();
+                                    mLisCauhoi.addAll(objExer.getmLisCauhoi());
+                                    intent.putExtra(Constants.KEY_SEND_EXER_AGAIN, true);
+                                    App.mExercise = obj;
+                                    startActivity(intent);
+                                }
+
+                                @Override
+                                public void onClickNoDialog() {
+                                    showDialogLoading();
+                                    objExer.setIsTrangthailambai("2");
+                                    mRealm.beginTransaction();
+                                    mRealm.copyToRealmOrUpdate(objExer);
+                                    mRealm.commitTransaction();
+                                    nopbai();
+                                    SharedPrefs.getInstance().put(Constants.KEY_SAVE_PLAYING_EXER, false);
+                                    SharedPrefs.getInstance().put(Constants.KEY_SAVE_LIST_EXER_PLAYING, null);
+                                }
+                            });
+                        }
+                    }
+                }
+                // deserializes json into target2
             }
-            // deserializes json into target2
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 
@@ -649,26 +658,27 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
                 startActivity(intent);*/
                 break;
             case R.id.btn_lambaitap:
-//                chil = SharedPrefs.getInstance().get(Constants.KEY_SAVE_CHIL, ObjLogin.class);
-//                if (chil != null) {
-//                    if (chil != null && chil.getsObjInfoKid().getsLEVEL_ID() != null &&
-//                            !chil.getsObjInfoKid().getsLEVEL_ID().equals("0")) {
+                chil = SharedPrefs.getInstance().get(Constants.KEY_SAVE_CHIL, ObjLogin.class);
+                if (chil != null) {
+                    if (chil != null && chil.getsObjInfoKid().getsLEVEL_ID() != null &&
+                            !chil.getsObjInfoKid().getsLEVEL_ID().equals("0")) {
 //                        boolean is_start_practice = SharedPrefs.getInstance().get(Constants.KEY_IS_START_PRACTICE, Boolean.class);
 //                        if (is_start_practice) {
-//                            startActivity(new Intent(ActivityHome.this, ActivityMenuBaitap.class));
+//                            startActivity(new Intent(ActivityHome.this, ActivityChoseBook.class));
 //                        } else {
 //                            Intent intent = new Intent(ActivityHome.this, ActivityGuildPractice.class);
 //                            intent.putExtra(Constants.KEY_SEND_OPTION_GUILD, Constants.KEY_VALUE_GUIL_PRACTICE);
 //                            startActivity(intent);
 //                        }
-//                    } else {
-//                        start_get_class();
-//                        //  Toast.makeText(this, "Thiếu level id", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
+                        startActivity(new Intent(ActivityHome.this, ActivityWeeklyExer.class));
+                    } else {
+                        start_get_class();
+                        //  Toast.makeText(this, "Thiếu level id", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
              //   startActivity(new Intent(ActivityHome.this, ActivityMenuBaitap.class));
-                startActivity(new Intent(ActivityHome.this, ActivityChoseBook.class));
+
 
 
                 break;
@@ -1100,8 +1110,24 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
                     + android.os.Build.MODEL, sTokenkey, "2", android.os.Build.VERSION.RELEASE, id);
         } else {
             Log.e("sToken", "home_get_init token: " + "update");
-            mPresenter_init.api_init(BuildConfig.VERSION_NAME, android.os.Build.BRAND + " " + android.os.Build.MODEL,
-                    "update", "2", android.os.Build.VERSION.RELEASE, id);
+            FirebaseMessaging.getInstance().getToken()
+                    .addOnCompleteListener(new OnCompleteListener<String>() {
+                        @Override
+                        public void onComplete(@NonNull Task<String> task) {
+                            if (!task.isSuccessful()) {
+                                Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                                return;
+                            }
+
+                            // Get new FCM registration token
+                            String token = task.getResult();
+                            SharedPrefs.getInstance().put(Constants.KEY_TOKEN, token);
+                            Log.e(TAG, "sToken: "+token );
+                            mPresenter_init.api_init(BuildConfig.VERSION_NAME, android.os.Build.BRAND + " " + android.os.Build.MODEL,
+                                    token, "2", android.os.Build.VERSION.RELEASE, id);
+                        }
+                    });
+
         }
     }
 

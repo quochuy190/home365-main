@@ -48,7 +48,7 @@ public class PresenterChangePass {
         mMap.put("OLDPASS ", sPassword);
         mMap.put("NEWPASS", newPass);
 
-        mApiService.getApiPostResfull(new CallbackData<String>() {
+        mApiService.getApiPostResfull_ALL(new CallbackData<String>() {
             @Override
             public void onGetDataErrorFault(Exception e) {
                 mView.show_error_api(null);

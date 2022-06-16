@@ -193,7 +193,7 @@ public class FragmentNoicau extends BaseFragment implements View.OnTouchListener
         View view = inflater.inflate(R.layout.fragment_noicau_all, container, false);
         ButterKnife.bind(this, view);
         //   Log.i(TAG, "onCreateView: " + mCauhoi.getsQUESTION());
-        Glide.with(getContext()).load(R.drawable.bg_chem_hoa_qua).into(img_background);
+        Glide.with(getContext()).load(R.drawable.bg_doc_hieu).into(img_background);
 
         initData();
         initEvent();
@@ -443,7 +443,7 @@ public class FragmentNoicau extends BaseFragment implements View.OnTouchListener
                 new Handler().post(new Runnable() {
                     @Override
                     public void run() {
-                        if (mLisAnwser_A.get(0) != null)
+                        if (mLisAnwser_A.size()>0&&mLisAnwser_A.get(0) != null)
                             initWebview(webview_dapannoicau_A_1, StringUtil.convert_html(mLisAnwser_A.get(0)));
                     }
                 });
@@ -550,11 +550,11 @@ public class FragmentNoicau extends BaseFragment implements View.OnTouchListener
                 rl_dapanA_2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.green));
                 rl_dapanB_2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.green));
 
-                rl_dapanA_3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.title_dalam));
-                rl_dapanB_3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.title_dalam));
+                rl_dapanA_3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.mau_tim));
+                rl_dapanB_3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.mau_tim));
 
-                rl_dapanA_4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.btn_danglam));
-                rl_dapanB_4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.btn_danglam));
+                rl_dapanA_4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.blue));
+                rl_dapanB_4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.blue));
             }
             if (mCauhoi.isDalam()) {
                 img_anwser_chil.setVisibility(View.VISIBLE);
@@ -797,11 +797,11 @@ public class FragmentNoicau extends BaseFragment implements View.OnTouchListener
         rl_dapanA_traloi_2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.green));
         rl_dapanB_traloi_2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.green));
 
-        rl_dapanA_traloi_3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.title_dalam));
-        rl_dapanB_traloi_3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.title_dalam));
+        rl_dapanA_traloi_3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.mau_tim));
+        rl_dapanB_traloi_3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.mau_tim));
 
-        rl_dapanA_traloi_4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.btn_danglam));
-        rl_dapanB_traloi_4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.btn_danglam));
+        rl_dapanA_traloi_4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.blue));
+        rl_dapanB_traloi_4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.blue));
     }
 
     private void initTraloi_chil() {
@@ -860,11 +860,11 @@ public class FragmentNoicau extends BaseFragment implements View.OnTouchListener
         rl_dapanA_traloi_2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.green));
         rl_dapanB_traloi_2.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.green));
 
-        rl_dapanA_traloi_3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.title_dalam));
-        rl_dapanB_traloi_3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.title_dalam));
+        rl_dapanA_traloi_3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.mau_tim));
+        rl_dapanB_traloi_3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.mau_tim));
 
-        rl_dapanA_traloi_4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.btn_danglam));
-        rl_dapanB_traloi_4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.btn_danglam));
+        rl_dapanA_traloi_4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.blue));
+        rl_dapanB_traloi_4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.blue));
     }
 
     @Override
@@ -964,7 +964,7 @@ public class FragmentNoicau extends BaseFragment implements View.OnTouchListener
             case "A3":
                 if (!isDangchon) {
                     if (!isDapanA_3) {
-                        rl_dapanA_3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.title_dalam));
+                        rl_dapanA_3.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.mau_tim));
                         sDangchon = "A3";
                         isDapanA_3 = true;
                         arayClickA3[0] = "A3";
@@ -987,7 +987,7 @@ public class FragmentNoicau extends BaseFragment implements View.OnTouchListener
             case "A4":
                 if (!isDangchon) {
                     if (!isDapanA_4) {
-                        rl_dapanA_4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.btn_danglam));
+                        rl_dapanA_4.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.blue));
                         sDangchon = "A4";
                         isDapanA_4 = true;
                         arayClickA4[0] = "A4";
@@ -1238,7 +1238,7 @@ public class FragmentNoicau extends BaseFragment implements View.OnTouchListener
                         if (!isClickB1) {
                             arayClickA3[1] = sClick;
                             map_answer_chil.put("egg_3", mLisAnwser_A.get(2) + "::" + mLisAnwser_B.get(position));
-                            rl.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.title_dalam));
+                            rl.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.mau_tim));
                             isDangchon = false;
                             sDangchon = "";
                             isClickB1 = true;
@@ -1248,7 +1248,7 @@ public class FragmentNoicau extends BaseFragment implements View.OnTouchListener
                         if (!isClickB2) {
                             arayClickA3[1] = sClick;
                             map_answer_chil.put("egg_3", mLisAnwser_A.get(2) + "::" + mLisAnwser_B.get(position));
-                            rl.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.title_dalam));
+                            rl.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.mau_tim));
                             isDangchon = false;
                             sDangchon = "";
                             isClickB2 = true;
@@ -1258,7 +1258,7 @@ public class FragmentNoicau extends BaseFragment implements View.OnTouchListener
                         if (!isClickB3) {
                             arayClickA3[1] = sClick;
                             map_answer_chil.put("egg_3", mLisAnwser_A.get(2) + "::" + mLisAnwser_B.get(position));
-                            rl.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.title_dalam));
+                            rl.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.mau_tim));
                             isDangchon = false;
                             sDangchon = "";
                             isClickB3 = true;
@@ -1268,7 +1268,7 @@ public class FragmentNoicau extends BaseFragment implements View.OnTouchListener
                         if (!isClickB4) {
                             arayClickA3[1] = sClick;
                             map_answer_chil.put("egg_3", mLisAnwser_A.get(2) + "::" + mLisAnwser_B.get(position));
-                            rl.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.title_dalam));
+                            rl.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.mau_tim));
                             isDangchon = false;
                             sDangchon = "";
                             isClickB4 = true;
@@ -1282,7 +1282,7 @@ public class FragmentNoicau extends BaseFragment implements View.OnTouchListener
                         if (!isClickB1) {
                             arayClickA4[1] = sClick;
                             map_answer_chil.put("egg_4", mLisAnwser_A.get(3) + "::" + mLisAnwser_B.get(position));
-                            rl.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.btn_danglam));
+                            rl.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.blue));
                             isDangchon = false;
                             sDangchon = "";
                             isClickB1 = true;
@@ -1292,7 +1292,7 @@ public class FragmentNoicau extends BaseFragment implements View.OnTouchListener
                         if (!isClickB2) {
                             arayClickA4[1] = sClick;
                             map_answer_chil.put("egg_4", mLisAnwser_A.get(3) + "::" + mLisAnwser_B.get(position));
-                            rl.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.btn_danglam));
+                            rl.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.blue));
                             isDangchon = false;
                             sDangchon = "";
                             isClickB2 = true;
@@ -1302,7 +1302,7 @@ public class FragmentNoicau extends BaseFragment implements View.OnTouchListener
                         if (!isClickB3) {
                             arayClickA4[1] = sClick;
                             map_answer_chil.put("egg_4", mLisAnwser_A.get(3) + "::" + mLisAnwser_B.get(position));
-                            rl.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.btn_danglam));
+                            rl.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.blue));
                             isDangchon = false;
                             sDangchon = "";
                             isClickB3 = true;
@@ -1312,7 +1312,7 @@ public class FragmentNoicau extends BaseFragment implements View.OnTouchListener
                         if (!isClickB4) {
                             arayClickA4[1] = sClick;
                             map_answer_chil.put("egg_4", mLisAnwser_A.get(3) + "::" + mLisAnwser_B.get(position));
-                            rl.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.btn_danglam));
+                            rl.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.blue));
                             isDangchon = false;
                             sDangchon = "";
                             isClickB4 = true;

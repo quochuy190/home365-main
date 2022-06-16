@@ -5,6 +5,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -58,8 +59,12 @@ public class AdapterBoSach extends RecyclerView.Adapter<AdapterBoSach.TopicViewH
         BoSach airport = listAirport.get(position);
         holder.tvNameBook.setText(airport.getName());
         Glide.with(context).load(airport.getImage()).into(holder.imgBook);
-
-
+        holder.btnChonSach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OnIListener.onClickItem(position,airport);
+            }
+        });
     }
 
     @Override
@@ -73,6 +78,8 @@ public class AdapterBoSach extends RecyclerView.Adapter<AdapterBoSach.TopicViewH
         TextView tvNameBook;
         @BindView(R.id.imgBook)
         ImageView imgBook;
+        @BindView(R.id.btnChonSach)
+        Button btnChonSach;
         public TopicViewHoder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

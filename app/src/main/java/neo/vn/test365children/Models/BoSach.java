@@ -12,8 +12,16 @@ import com.google.gson.annotations.SerializedName;
 public class BoSach {
     @SerializedName("ERROR")
     String name;
+    @SerializedName("id")
+    int id;
     @SerializedName("MESSAGE")
     int image;
+
+    public BoSach(int id, String name,  int image) {
+        this.name = name;
+        this.id = id;
+        this.image = image;
+    }
 
     public BoSach(String name, int image) {
         this.name = name;
@@ -34,5 +42,13 @@ public class BoSach {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

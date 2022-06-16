@@ -56,15 +56,18 @@ public class AdapterItemMenuLambaitap extends RecyclerView.Adapter<AdapterItemMe
         switch (obj.getsSUBJECT_ID()) {
             case "1":
                 holder.txt_name.setText("Toán" + " - Tuần " + obj.getsWEEK_ID());
-                Glide.with(context).load(R.drawable.ic_exer_maths).into(holder.img_item_menu_lambai);
+                holder.img_item_menu_lambai.setImageResource(R.drawable.ic_exer_maths);
+              //  Glide.with(context).load(R.drawable.ic_exer_maths).into(holder.img_item_menu_lambai);
                 break;
             case "2":
                 holder.txt_name.setText("Tiếng Việt" + " - Tuần " + obj.getsWEEK_ID());
-                Glide.with(context).load(R.drawable.ic_exer_literature).into(holder.img_item_menu_lambai);
+                holder.img_item_menu_lambai.setImageResource(R.drawable.ic_exer_literature);
+             //   Glide.with(context).load(R.drawable.ic_exer_literature).into(holder.img_item_menu_lambai);
                 break;
             case "3":
                 holder.txt_name.setText("Tiếng Anh" + " - Tuần " + obj.getsWEEK_ID());
-                Glide.with(context).load(R.drawable.ic_exer_eng).into(holder.img_item_menu_lambai);
+                holder.img_item_menu_lambai.setImageResource(R.drawable.ic_exer_eng);
+             //   Glide.with(context).load(R.drawable.ic_exer_eng).into(holder.img_item_menu_lambai);
                 break;
         }
       /*  switch (obj.getsSUBJECT_ID()) {

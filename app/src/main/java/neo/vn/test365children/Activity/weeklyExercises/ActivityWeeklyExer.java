@@ -43,6 +43,7 @@ public class ActivityWeeklyExer extends BaseActivity {
         adapterViewpager.addFragment(FragmentCurrentExer.newInstance(), "Bài tập tuần này");
         adapterViewpager.addFragment(FragmentExercisesDone.newInstance(), "Bài tập đã làm");
         vpWeeklyExer.setPagingEnabled(true);
+        vpWeeklyExer.setOffscreenPageLimit(3);
         vpWeeklyExer.setAdapter(adapterViewpager);
         mTabExer.setupWithViewPager(vpWeeklyExer);
 

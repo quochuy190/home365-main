@@ -413,7 +413,7 @@ public class FragmentXepTrung extends BaseFragment {
 
             } else {
                 ll_player_again.setVisibility(View.GONE);
-                btn_xemdiem.setVisibility(View.VISIBLE);
+               // btn_xemdiem.setVisibility(View.VISIBLE);
             }
         } catch (Exception e) {
             e.printStackTrace();

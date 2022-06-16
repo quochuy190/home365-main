@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp7"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <TextView
+        android:textAllCaps="true"
+        android:paddingHorizontal="@dimen/dp15"
+        android:background="#F6B70F"
+        android:paddingVertical="3dp"
+        android:id="@+id/tvTitleExer"
+        android:textSize="16sp"
+        android:gravity="center_vertical"
+        android:textColor="@color/white"
+        android:text="TUAN 1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:minLines="2"
+        android:maxLines="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/imgDown"
+        android:tint="@color/white"
+        app:srcCompat="@drawable/ic_arrow_down"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitleExer"
+        app:layout_constraintEnd_toEndOf="@+id/tvTitleExer"
+        app:layout_constraintTop_toTopOf="@+id/tvTitleExer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:background="#FFFEEB"
+        android:paddingHorizontal="@dimen/dp10"
+        android:id="@+id/rcvExerLast"
+        tools:listitem="@layout/item_menu_lambaitap"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleExer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

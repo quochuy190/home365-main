@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'realm-android'
 apply plugin: 'io.fabric'
 android {
-    compileSdkVersion 31
+    compileSdkVersion 32
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "neo.vn.test365children"
         minSdkVersion 19
-        targetSdkVersion 31
+        targetSdkVersion 30
         versionCode 43
-        versionName "1.0.0"
+        versionName "1.0.6"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

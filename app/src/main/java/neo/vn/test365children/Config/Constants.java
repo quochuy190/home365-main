@@ -39,6 +39,7 @@ public class Constants {
     public static final String KEY_ISLOGIN = "KEY_ISLOGIN";
     public static final String KEY_ISLOGIN_ERROR_SESSION = "KEY_ISLOGIN_ERROR_SESSION";
     public static final String KEY_SEND_BAITAPTUAN = "KEY_SEND_BAITAPTUAN";
+    public static final String KEY_SEND_ID_BOSACH = "KEY_SEND_ID_BOSACH";
     public static final String KEY_SEND_LISTCAUHOI = "KEY_SEND_LISTCAUHOI";
     public static final String KEY_SEND_OBJLOGIN = "KEY_SEND_OBJLOGIN";
     public static final String KEY_IS_WELCOME = "KEY_IS_WELCOME";

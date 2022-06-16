@@ -3,6 +3,8 @@ package neo.vn.test365children.Activity.login;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,12 +15,16 @@ import androidx.annotation.Nullable;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.realm.Realm;
 import neo.vn.test365children.Activity.ActivityHome;
 import neo.vn.test365children.Activity.login.auth.PhoneAuthActivity;
+import neo.vn.test365children.App;
 import neo.vn.test365children.Base.BaseActivity;
 import neo.vn.test365children.Config.Constants;
 import neo.vn.test365children.Listener.ClickDialog;
 import neo.vn.test365children.Models.ErrorApi;
+import neo.vn.test365children.Models.InfoKids;
+import neo.vn.test365children.Models.InfoStudent;
 import neo.vn.test365children.Models.ObjLogin;
 import neo.vn.test365children.Models.respon_api.ResponInitChil;
 import neo.vn.test365children.Models.vip.ChildX;
@@ -26,6 +32,7 @@ import neo.vn.test365children.Models.vip.ObjLoginVip;
 import neo.vn.test365children.Presenter.ImlLogin;
 import neo.vn.test365children.Presenter.PresenterLogin;
 import neo.vn.test365children.R;
+import neo.vn.test365children.RealmController.RealmController;
 import neo.vn.test365children.Untils.SharedPrefs;
 
 public class ActivityLoginNew extends BaseActivity implements ImlLoginNew.View, ImlLogin.View {
@@ -35,6 +42,7 @@ public class ActivityLoginNew extends BaseActivity implements ImlLoginNew.View, 
     String sUserCon;
     String sPassword;
     String phoneV = "", passV = "";
+    Boolean isShowPw = false;
     @BindView(R.id.edt_user_con)
     EditText edtPhoneLogin;
     @BindView(R.id.edt_user_pass)
@@ -47,6 +55,9 @@ public class ActivityLoginNew extends BaseActivity implements ImlLoginNew.View, 
     ImageView icBackLogin;
     @BindView(R.id.txtRegister)
     TextView tvRegister;
+    @BindView(R.id.img_user_pass)
+    ImageView imgPass;
+    Realm mRealm;
 
     @Override
     public int setContentViewId() {
@@ -58,7 +69,28 @@ public class ActivityLoginNew extends BaseActivity implements ImlLoginNew.View, 
         super.onCreate(savedInstanceState);
         mPresenter = new PresenterLoginNew(this);
         mPresenterLogin = new PresenterLogin(this);
+        mRealm = RealmController.with(this).getRealm();
         loadView();
+        initEvent();
+    }
+
+    private void initEvent() {
+        imgPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isShowPw) {
+                    imgPass.setImageResource(R.drawable.ic_eye_hide);
+                    edtPassLoginVip.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    edtPassLoginVip.setSelection(edtPassLoginVip.getText().length());
+                    isShowPw = false;
+                } else {
+                    imgPass.setImageResource(R.drawable.ic_eye_show);
+                    edtPassLoginVip.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    edtPassLoginVip.setSelection(edtPassLoginVip.getText().length());
+                    isShowPw = true;
+                }
+            }
+        });
     }
 
     private void loadView() {
@@ -87,6 +119,21 @@ public class ActivityLoginNew extends BaseActivity implements ImlLoginNew.View, 
             SharedPrefs.getInstance().put(Constants.KEY_USER_ME, sUserMe);
             SharedPrefs.getInstance().put(Constants.KEY_USER_CON, sUserCon);
             SharedPrefs.getInstance().put(Constants.KEY_PASSWORD, sPassword);
+            InfoKids objKid = mLis.getsObjInfoKid();
+            InfoStudent infoStudent = new InfoStudent(
+                    SharedPrefs.getInstance().get(Constants.KEY_USER_ME, String.class),
+                    SharedPrefs.getInstance().get(Constants.KEY_USER_CON, String.class),
+                    objKid.getsPROVINCE(),
+                    objKid.getsDISTRICT(),
+                    objKid.getsSCHOOL(),
+                    objKid.getsCLASS(),
+                    objKid.getsFULLNAME(),
+                    objKid.getPROVINCE_ID(),
+                    objKid.getDISTRICT_ID(),
+                    objKid.getsSCHOOL_ID());
+            mRealm.beginTransaction();
+            mRealm.copyToRealmOrUpdate(infoStudent);
+            mRealm.commitTransaction();
             showDialogComfirm("Thông báo", mLis.getsRESULT(), false, new ClickDialog() {
                 @Override
                 public void onClickYesDialog() {

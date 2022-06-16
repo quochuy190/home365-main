@@ -286,7 +286,7 @@ public class PresenterBaitap implements ImpBaitap.Presenter {
 
             @Override
             public void onGetDataErrorFault(Exception e) {
-
+                mView.show_error_api(null);
             }
         }, sService, mMap);
     }

@@ -185,7 +185,11 @@ public class ActivityComplete extends BaseActivity implements ImpBaitap.View, Im
             @Override
             public void onClick(View v) {
                 KeyboardUtil.play_click_button(ActivityComplete.this);
-                setResult(RESULT_OK, new Intent());
+              //  setResult(RESULT_OK, new Intent());
+                Intent intent = new Intent(ActivityComplete.this, ActivityHome.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 finish();
             }
         });
@@ -448,11 +452,14 @@ public class ActivityComplete extends BaseActivity implements ImpBaitap.View, Im
         hideDialogLoading();
         if (objError.getsERROR().equals("0000")) {
             showDialogComfirm("Thông báo",
-                    "Đánh giá đã được gửi đi. Cảm ơn con đã đóng góp xây dựng Home365.",
+                    "Đánh giá đã được gửi đi. Cảm ơn con đã đóng góp xây dựng ứng dụng.",
                     false, new ClickDialog() {
                         @Override
                         public void onClickYesDialog() {
-                            setResult(RESULT_OK, new Intent());
+                            Intent intent = new Intent(ActivityComplete.this, ActivityHome.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
                             finish();
                         }
 

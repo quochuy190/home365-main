@@ -96,7 +96,7 @@ public class ActivityStartBaitap extends BaseActivity implements ImpBaitap.View,
         mPresenterConfig = new PresenterConfigChil(this);
         DetailExercise objDetailExer = (DetailExercise) getIntent().getSerializableExtra(Constants.KEY_SEND_EXER_LUYENTHI);
         isLuyenthi = getIntent().getBooleanExtra(Constants.KEY_SEND_IS_START_EXER_LUYENTHI, false);
-        Glide.with(this).load(R.drawable.bg_start_exercises).into(img_background);
+        Glide.with(this).load(R.drawable.bg_home).into(img_background);
         sUserMe = SharedPrefs.getInstance().get(Constants.KEY_USER_ME, String.class);
         sUserCon = SharedPrefs.getInstance().get(Constants.KEY_USER_CON, String.class);
         if (isLuyenthi) {

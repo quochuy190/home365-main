@@ -185,9 +185,9 @@ public class ActivityDanhsachKhoihoc extends BaseActivity {
     private void initData() {
         mLisAirport.add("1");
         mLisAirport.add("2");
-        mLisAirport.add("3");
-        mLisAirport.add("4");
-        mLisAirport.add("5");
+//        mLisAirport.add("3");
+//        mLisAirport.add("4");
+//        mLisAirport.add("5");
         temp.addAll(mLisAirport);
         adapterService.notifyDataSetChanged();
 

@@ -60,6 +60,7 @@
 
 
     <Button
+        android:visibility="gone"
         android:layout_marginBottom="@dimen/dp3"
         android:id="@+id/btn_xemdiem"
         android:layout_width="@dimen/btn_showpoint_width"

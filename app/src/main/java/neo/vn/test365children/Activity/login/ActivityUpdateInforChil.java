@@ -106,6 +106,8 @@ public class ActivityUpdateInforChil extends BaseActivity implements ImpUploadIm
     CircleImageView img_avata_update;
     @BindView(R.id.btn_ok_add_sub)
     Button btn_ok_add_sub;
+    @BindView(R.id.btnChangePass)
+    Button btnChangePass;
     String sIdTruong;
     ObjLogin chil;
     PresenterUploadImage mPresenterUpload;
@@ -206,7 +208,7 @@ public class ActivityUpdateInforChil extends BaseActivity implements ImpUploadIm
                     Glide.with(this)
                             .load(Config.URL_IMAGE + chil.getsObjInfoKid().getsAVATAR())
                             .asBitmap()
-                            .placeholder(R.drawable.icon_avata)
+                            .placeholder(R.drawable.ic_avata_home)
                             .into(new BitmapImageViewTarget(img_avata_update) {
                                 @Override
                                 public void onResourceReady(Bitmap drawable, GlideAnimation anim) {
@@ -327,6 +329,13 @@ public class ActivityUpdateInforChil extends BaseActivity implements ImpUploadIm
     }
 
     private void initEvent() {
+        btnChangePass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ActivityUpdateInforChil.this, ActivityChangePass.class);
+                startActivity(intent);
+            }
+        });
         img_level_id.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -560,6 +569,7 @@ public class ActivityUpdateInforChil extends BaseActivity implements ImpUploadIm
             String sUserChild = SharedPrefs.getInstance().get(Constants.KEY_USER_CON, String.class);
             String sPass = SharedPrefs.getInstance().get(Constants.KEY_PASSWORD, String.class);
             if (sLevel_id != null && sLevel_id.length() > 0) {
+                sMobile = edt_phone.getText().toString();
                 mPresetner.api_update_info_chil_2(sUserMother, sUserChild, App.mSchools.getsID(), sLevel_id,
                         sLop, "1", sFullname, sPass, sAvata, sMobile, sEmail, sIs_status_update);
             } else {

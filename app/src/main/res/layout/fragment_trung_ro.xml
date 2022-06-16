@@ -229,6 +229,13 @@
                 android:textColor="@color/app_bar"
                 android:textSize="@dimen/txt_xeptrung" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_dapan"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -273,10 +280,10 @@
         app:layout_constraintTop_toBottomOf="@+id/ll_lable" />
 
     <Button
-        android:visibility="visible"
+        android:visibility="invisible"
         android:id="@+id/btn_xemdiem"
         android:layout_width="@dimen/btn_showpoint_width"
-        android:layout_height="@dimen/btn_showpoint_hight"
+        android:layout_height="@dimen/dp20"
         android:layout_marginBottom="@dimen/dp3"
         android:background="@drawable/btn_1"
         android:fontFamily="@font/roboto_bold"
@@ -358,17 +365,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.5" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycle_dapan"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@id/guideline3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_title_dapan_again">
-
-        </androidx.recyclerview.widget.RecyclerView>
 
         <TextView
             android:id="@+id/txt_title_anwser_chil"

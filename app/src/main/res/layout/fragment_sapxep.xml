@@ -149,6 +149,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll_lable" />
     <Button
+        android:visibility="gone"
         android:id="@+id/btn_xemdiem"
         android:layout_width="@dimen/btn_showpoint_width"
         android:layout_height="@dimen/btn_showpoint_hight"

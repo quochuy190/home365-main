@@ -1,8 +1,10 @@
 package neo.vn.test365children.Models;
 
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class DETAILSItem{
+public class DETAILSItem implements   Comparable<DETAILSItem>{
 
 	@SerializedName("SUBJECT_NAME")
 	private String sUBJECTNAME;
@@ -57,5 +59,22 @@ public class DETAILSItem{
 
 	public String getWEEKNAME(){
 		return wEEKNAME;
+	}
+
+	@Override
+	public int compareTo(DETAILSItem exer2) {
+		try {
+			int number1 = Integer.parseInt(exer2.wEEKNAME.replace("Tuần", ""));
+			int number2 = Integer.parseInt(wEEKNAME.replace("Tuần", ""));
+			if (number1 == number2)
+				return 0;
+			else if (number1 > number2)
+				return 1;
+			else
+				return -1;
+		}catch (Exception e){
+			e.printStackTrace();
+			return 0;
+		}
 	}
 }

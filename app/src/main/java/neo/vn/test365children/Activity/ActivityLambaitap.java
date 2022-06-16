@@ -244,9 +244,9 @@ public class ActivityLambaitap extends BaseActivity implements ImpBaitap.View, M
         cPlayTrue = mSoundPool.load(getApplicationContext(), R.raw.true_mp3, 1);
         cPlayClick = mSoundPool.load(getApplicationContext(), R.raw.click, 1);
         cPlayFalse = mSoundPool.load(getApplicationContext(), R.raw.false_te, 1);
-        cPlayFalse_Sau = mSoundPool.load(getApplicationContext(), R.raw.sau_laughing_cut, 1);
-        cPlayPr_Win_1 = mSoundPool.load(getApplicationContext(), R.raw.yeah_mp3, 1);
-        cPlayPr_Win_2 = mSoundPool.load(getApplicationContext(), R.raw.yeah_mp3, 1);
+        cPlayFalse_Sau = mSoundPool.load(getApplicationContext(), R.raw.false_te, 1);
+        cPlayPr_Win_1 = mSoundPool.load(getApplicationContext(), R.raw.true_mp3, 1);
+        cPlayPr_Win_2 = mSoundPool.load(getApplicationContext(), R.raw.true_mp3, 1);
         cPlayPr_Win_lost = mSoundPool.load(getApplicationContext(), R.raw.false_te, 1);
     }
 
