@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.os.Build;
@@ -54,9 +55,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void showAlertDialog(String title, String content) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder = new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
+            builder = new AlertDialog.Builder(this, R.style.MyStyleDialogAlert);
         } else
-            builder = new AlertDialog.Builder(this);
+            builder = new AlertDialog.Builder(this, R.style.MyStyleDialogAlert);
 
         builder.setTitle(title)
                 .setCancelable(false)
@@ -65,16 +66,18 @@ public abstract class BaseActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         // continue with delete
                     }
-                })
-                .show();
-
+                });
+        TextView textView = (TextView)  dialog.findViewById(android.R.id.message);
+        Typeface face=Typeface.createFromAsset(getAssets(),"utm_avo");
+        textView.setTypeface(face);
+        builder.show();
     }
 
     public void showAlertErrorNetwork() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder = new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
+            builder = new AlertDialog.Builder(this, R.style.MyStyleDialogAlert);
         } else
-            builder = new AlertDialog.Builder(this);
+            builder = new AlertDialog.Builder(this, R.style.MyStyleDialogAlert);
 
         builder.setTitle(getString(R.string.error_network))
                 .setCancelable(false)
@@ -179,9 +182,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void showDialogComfirm(String title, String message, boolean is_hide_cancel,
                                   final ClickDialog clickDialog) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder = new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
+            builder = new AlertDialog.Builder(this, R.style.MyStyleDialogAlert);
         } else
-            builder = new AlertDialog.Builder(this);
+            builder = new AlertDialog.Builder(this, R.style.MyStyleDialogAlert);
         if (is_hide_cancel) {
             builder.setTitle(title)
                     .setCancelable(false)
@@ -197,8 +200,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             clickDialog.onClickNoDialog();
                         }
-                    })
-                    .show();
+                    });
         } else {
             builder.setTitle(title)
                     .setCancelable(false)
@@ -208,16 +210,19 @@ public abstract class BaseActivity extends AppCompatActivity {
                             // continue with delete
                             clickDialog.onClickYesDialog();
                         }
-                    })
+                    });
                     /*  .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                           @Override
                           public void onClick(DialogInterface dialog, int which) {
 
                           }
                       })*/
-                    .show();
-        }
 
+        }
+        AlertDialog dialog = builder.show();
+        TextView textView = (TextView)  dialog.findViewById(android.R.id.message);
+        Typeface face=Typeface.createFromAsset(getAssets(),"utm_avo.ttf");
+        textView.setTypeface(face);
     }
 
     public void showDialogNotify(String title, String message) {
@@ -260,9 +265,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         windowAlDl.setAttributes(layoutParams);
         dialog_yes.show();*/
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder = new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
+            builder = new AlertDialog.Builder(this, R.style.MyStyleDialogAlert);
         } else
-            builder = new AlertDialog.Builder(this);
+            builder = new AlertDialog.Builder(this, R.style.MyStyleDialogAlert);
         builder.setTitle(title)
                 .setCancelable(false)
                 .setMessage(message)
@@ -270,13 +275,17 @@ public abstract class BaseActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
-                })
-                .show();
+                });
+        AlertDialog dialog = builder.show();
+        TextView textView = (TextView)  dialog.findViewById(android.R.id.message);
+        Typeface face=Typeface.createFromAsset(getAssets(),"utm_avo.ttf");
+        textView.setTypeface(face);
+
     }
 
     public void showDialogComfirm_two_button(String title, String message, boolean is_hide_cancel,
                                              final ClickDialog clickDialog, String btn_yes, String btn_cancels) {
-        final Dialog dialog_yes = new Dialog(this);
+        final Dialog dialog_yes = new Dialog(this, R.style.MyStyleDialogAlert);
         dialog_yes.setCancelable(false);
         dialog_yes.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog_yes.setContentView(R.layout.dialog_warning);

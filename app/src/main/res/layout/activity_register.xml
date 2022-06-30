@@ -37,7 +37,7 @@
             android:maxLines="2"
             android:textStyle="bold"
             android:layout_marginTop="@dimen/dp7"
-
+            android:fontFamily="@font/utm_avo"
             android:id="@+id/txtTitleLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,6 +52,7 @@
             />
 
         <TextView
+            android:fontFamily="@font/utm_avo"
             android:id="@+id/txtLableMahocsinh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -81,6 +82,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtLableMahocsinh">
 
             <EditText
+                android:fontFamily="@font/utm_avo"
                 android:enabled="false"
                 android:focusable="false"
                 android:id="@+id/edtLevel"
@@ -110,6 +112,7 @@
                 android:tint="@color/gray" />
         </RelativeLayout>
         <TextView
+            android:fontFamily="@font/utm_avo"
             android:layout_marginTop="@dimen/dp7"
             android:id="@+id/txtLableSchools"
             android:layout_width="wrap_content"
@@ -137,6 +140,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtLableSchools">
 
             <EditText
+                android:fontFamily="@font/utm_avo"
                 android:singleLine="true"
                 android:enabled="false"
                 android:focusable="false"
@@ -168,6 +172,7 @@
         </RelativeLayout>
 
         <TextView
+            android:fontFamily="@font/utm_avo"
             android:layout_marginTop="@dimen/dp7"
             android:id="@+id/txtCodeLevel"
             android:layout_width="wrap_content"
@@ -195,6 +200,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtCodeLevel">
 
             <EditText
+                android:fontFamily="@font/utm_avo"
                 android:id="@+id/edtCodePupul"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -213,6 +219,7 @@
         </RelativeLayout>
 
         <TextView
+            android:fontFamily="@font/utm_avo"
             android:layout_marginTop="@dimen/dp7"
             android:id="@+id/txtDistrict"
             android:layout_width="wrap_content"
@@ -240,6 +247,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtDistrict">
 
             <EditText
+                android:fontFamily="@font/utm_avo"
                 android:enabled="false"
                 android:focusable="false"
                 android:id="@+id/edtDistrict"
@@ -271,6 +279,7 @@
         </RelativeLayout>
 
         <TextView
+            android:fontFamily="@font/utm_avo"
             android:layout_marginTop="@dimen/dp7"
             android:id="@+id/txtPass"
             android:layout_width="wrap_content"
@@ -299,6 +308,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtPass">
 
             <EditText
+                android:fontFamily="@font/utm_avo"
                 android:id="@+id/edtPass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -327,6 +337,7 @@
         </RelativeLayout>
 
         <TextView
+            android:fontFamily="@font/utm_avo"
             android:id="@+id/txtPassConfirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -354,6 +365,7 @@
             app:layout_constraintTop_toTopOf="@+id/llPass">
 
             <EditText
+                android:fontFamily="@font/utm_avo"
                 android:id="@+id/edtPassConfirm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -384,23 +396,24 @@
 
 
         <Button
+            android:fontFamily="@font/utm_avo_bold"
             android:id="@+id/btnRegister"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/spr_button_oragen_click"
-            android:fontFamily="@font/roboto_bold"
             android:text="@string/btn_register"
             android:textColor="@color/white"
             android:textSize="@dimen/text_login"
             app:layout_constraintBottom_toTopOf="@+id/txtLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.1"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/llPass"
             app:layout_constraintWidth_percent="0.4" />
 
         <TextView
+            app:layout_constraintTop_toBottomOf="@+id/btnRegister"
+            android:fontFamily="@font/utm_avo"
             android:layout_marginBottom="@dimen/dp7"
             android:id="@+id/txtLogin"
             android:layout_width="wrap_content"

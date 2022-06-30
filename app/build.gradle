@@ -5,11 +5,11 @@ android {
     compileSdkVersion 32
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
-        applicationId "neo.vn.test365children"
+        applicationId "neo.vn.bacgiang365"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 43
-        versionName "1.0.6"
+        versionCode 8
+        versionName "1.0.8"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -31,15 +31,15 @@ android {
     android {
         signingConfigs {
             release {
-                storeFile file('home365kid.jks')
-                storePassword "quochuy101"
-                keyAlias "home365kid"
-                keyPassword "quochuy101"
+                storeFile file('bacgiang365.jks')
+                storePassword "123456"
+                keyAlias "bacgiang365"
+                keyPassword "123456"
             }
         }
         buildTypes {
             release {
-                debuggable true
+                debuggable false
                 minifyEnabled false
                 signingConfig signingConfigs.release
             }
@@ -90,8 +90,6 @@ dependencies {
     implementation 'com.google.android.gms:play-services-safetynet:18.0.1'
     // Check for v11.4.2 or higher
   //  implementation 'com.google.firebase:firebase-core:16.0.8'
-    // Add dependency
-   implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9'
     //Eventbus
     implementation 'org.greenrobot:eventbus:3.1.1'
     //EasyFlipView

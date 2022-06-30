@@ -388,7 +388,8 @@ public class ActivityGiaiCuuCongChua extends BaseActivity
         String pish = "<html><body  align='center'>";
         String pas = "</body></html>";
         String text = "<html><head>"
-                + "<style type=\"text/css\">body{color: #fff;}"
+               // + "<style type=\"text/css\">body{color: #fff;}"
+                + "<style type=\"text/css\">@font-face {font-family: MyFont;src: url(\"file:///android_asset/utm_avo.ttf\")}body {font-family: MyFont;font-size: medium;color: #fff;}</style>"
                 + "</style></head>"
                 + "<body>"
                 + StringUtil.convert_html(link_web)

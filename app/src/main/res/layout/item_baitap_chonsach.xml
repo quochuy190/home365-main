@@ -34,18 +34,19 @@
                 app:layout_constraintWidth_percent="0.13" />
 
             <Button
+                android:fontFamily="@font/utm_avo"
                 android:id="@+id/btnLamBaitap"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/dp30"
+                android:layout_height="@dimen/dp35"
                 android:layout_marginEnd="@dimen/dp5"
                 android:layout_marginBottom="@dimen/dp3"
                 android:background="@drawable/spr_button_blue_click"
-                android:fontFamily="@font/roboto_bold"
+                android:textStyle="bold"
                 android:padding="@dimen/dp5"
                 android:text="Làm bài tập"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_15sp"
+                android:textSize="@dimen/text_14sp"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="@+id/imgBook"
                 app:layout_constraintRight_toRightOf="parent"
@@ -53,6 +54,7 @@
                 app:layout_constraintWidth_percent="0.15" />
 
             <TextView
+                android:fontFamily="@font/utm_avo"
                 android:id="@+id/tvNameBaitap"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -68,6 +70,7 @@
                 tools:text="Cánh diều" />
 
             <TextView
+                android:fontFamily="@font/utm_avo"
                 android:id="@+id/tvNameRequi"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

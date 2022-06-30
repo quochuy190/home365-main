@@ -19,6 +19,7 @@
     </RelativeLayout>
 
     <Button
+        style="@style/text_font_utm_avo_bold"
         android:id="@+id/btn_xemdiem"
         android:layout_width="@dimen/btn_showpoint_width"
         android:layout_height="@dimen/btn_showpoint_hight"
@@ -56,7 +57,7 @@
                 android:id="@+id/txt_lable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_bold"
+                android:fontFamily="@font/utm_avo_bold"
                 android:padding="@dimen/dp5"
                 android:text="Giải cứu công chúa"
                 android:textColor="@color/white"

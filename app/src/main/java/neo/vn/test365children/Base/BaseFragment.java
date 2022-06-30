@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.os.Build;
@@ -176,9 +177,9 @@ public class BaseFragment extends Fragment {
     public void showAlertDialog(String title, String content) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             builder = new AlertDialog.Builder(getContext(),
-                    android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
+                    R.style.MyStyleDialogAlert);
         } else
-            builder = new AlertDialog.Builder(getContext());
+            builder = new AlertDialog.Builder(getContext(), R.style.MyStyleDialogAlert);
 
         builder.setTitle(title)
                 .setCancelable(false)
@@ -188,15 +189,21 @@ public class BaseFragment extends Fragment {
                         // continue with delete
 
                     }
-                })
-                .show();
+                });
+        builder.show();
+        AlertDialog dialog = builder.show();
+        TextView textView = (TextView)  dialog.findViewById(android.R.id.message);
+        Typeface face=Typeface.createFromAsset(getContext().getAssets(),"utm_avo.ttf");
+        textView.setTypeface(face);
+
     }
 
     public void showAlertErrorNetwork() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder = new AlertDialog.Builder(getContext(), android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
+            builder = new AlertDialog.Builder(getContext(), R.style.MyStyleDialogAlert);
         } else
-            builder = new AlertDialog.Builder(getContext());
+            builder = new AlertDialog.Builder(getContext(), R.style.MyStyleDialogAlert);
+
 
         builder.setTitle(getString(R.string.error_network))
                 .setCancelable(false)
@@ -207,12 +214,16 @@ public class BaseFragment extends Fragment {
                     }
                 })
                 .show();
+        AlertDialog dialog = builder.show();
+        TextView textView = (TextView)  dialog.findViewById(android.R.id.message);
+        Typeface face=Typeface.createFromAsset(getContext().getAssets(),"utm_avo.ttf");
+        textView.setTypeface(face);
     }
 
 
     public void showDialogComfirm(String title, String message, boolean is_hide_cancel,
                                   final ClickDialog clickDialog) {
-        final Dialog dialog_yes = new Dialog(getContext());
+        final Dialog dialog_yes = new Dialog(getContext(), R.style.MyStyleDialogAlert);
         dialog_yes.setCancelable(false);
         dialog_yes.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog_yes.setContentView(R.layout.dialog_warning);
@@ -251,7 +262,7 @@ public class BaseFragment extends Fragment {
     }
 
     public void showDialogNotify(String title, String message) {
-        final Dialog dialog_yes = new Dialog(getContext());
+        final Dialog dialog_yes = new Dialog(getContext(), R.style.MyStyleDialogAlert);
         dialog_yes.setCancelable(false);
         dialog_yes.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog_yes.setContentView(R.layout.dialog_warning);

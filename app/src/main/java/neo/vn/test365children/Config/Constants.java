@@ -32,6 +32,7 @@ public class Constants {
     public static final String KEY_ISTOKEN = "KEY_ISTOKEN";
     public static final String KEY_UPDATE_TOKEN = "KEY_UPDATE_TOKEN";
     public static final String KEY_USER_ME = "KEY_USER_ME";
+    public static final String MA_HS = "MA_HS";
     public static final String KEY_USER_CON = "KEY_USER_CON";
     public static final String KEY_PASSWORD = "KEY_PASSWORD";
     public static final String KEY_URL_MEDIA = "KEY_URL_MEDIA";

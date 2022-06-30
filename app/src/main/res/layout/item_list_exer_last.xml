@@ -9,9 +9,10 @@
         android:textAllCaps="true"
         android:paddingHorizontal="@dimen/dp15"
         android:background="#F6B70F"
-        android:paddingVertical="3dp"
+
         android:id="@+id/tvTitleExer"
-        android:textSize="16sp"
+        style="@style/text_font_utm_avo_bold"
+        android:textSize="@dimen/text_15sp"
         android:gravity="center_vertical"
         android:textColor="@color/white"
         android:text="TUAN 1"
@@ -33,6 +34,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"/>
     <androidx.recyclerview.widget.RecyclerView
+        android:paddingTop="@dimen/dp5"
         android:background="#FFFEEB"
         android:paddingHorizontal="@dimen/dp10"
         android:id="@+id/rcvExerLast"

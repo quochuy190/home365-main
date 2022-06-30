@@ -16,14 +16,15 @@
     <TextView
         android:layout_below="@+id/img_item_menu_lambai"
         android:maxLines="2"
-        android:padding="@dimen/dp5"
+        android:paddingHorizontal="@dimen/dp1"
+        android:paddingVertical="@dimen/dp5"
         android:id="@+id/txt_name_menu_lambai"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Tiếng việt - Tuần 1"
         android:textColor="@color/black"
-        android:textSize="@dimen/text_16sp" />
+        android:textSize="@dimen/text_14sp" />
 
 
 </RelativeLayout>

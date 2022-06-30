@@ -164,7 +164,6 @@ public class FragmentLastExer extends BaseFragment implements  ImpBaitap.View{
                 mListLast.add(new ExerLastObj(s, mBaiTap));
             }
             adapter.updateList(mListLast);
-            adapter.notifyDataSetChanged();
         } else if (objResponWeek.getsERROR().equals("0002")) {
             sUserMe = SharedPrefs.getInstance().get(Constants.KEY_USER_ME, String.class);
             sUserCon = SharedPrefs.getInstance().get(Constants.KEY_USER_CON, String.class);

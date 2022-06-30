@@ -27,6 +27,7 @@
         android:layout_height="0dp"/>
 
     <TextView
+        android:fontFamily="@font/utm_avo"
         android:text="Bộ sách hiện tại chưa có bài tập nào!"
         android:id="@+id/txtDataEmpty"
         android:layout_width="0dp"
@@ -35,7 +36,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:fontFamily="@font/roboto_bold"
+        android:textStyle="bold"
         android:gravity="center"
         android:textColor="@color/gray_text"
         android:textSize="@dimen/txt_name_exer"

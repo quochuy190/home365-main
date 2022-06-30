@@ -16,11 +16,14 @@ import java.util.List;
 
 import butterknife.BindView;
 import io.realm.Realm;
+import neo.vn.test365children.Activity.ActivityStartBaitap;
 import neo.vn.test365children.Activity.doctruyen.Activity_webview_doctruyen;
+import neo.vn.test365children.Activity.weeklyExercises.ActivityBaitapChonsach;
 import neo.vn.test365children.App;
 import neo.vn.test365children.Base.BaseActivity;
 import neo.vn.test365children.Config.Config;
 import neo.vn.test365children.Config.Constants;
+import neo.vn.test365children.Models.Baitap_Tuan;
 import neo.vn.test365children.Models.Cauhoi;
 import neo.vn.test365children.Models.DesExercises;
 import neo.vn.test365children.Models.DetailExercise;
@@ -96,10 +99,13 @@ public class ActivityExercisesDetail extends BaseActivity implements ImlExerDeta
         RelativeLayout rl_xembaitap;*/
     @BindView(R.id.btn_guilai)
     Button btn_guilai;
+    @BindView(R.id.btn_lamlaibaitap)
+    Button btnLamlai;
     ExerciseAnswer objExer;
     private PresenterBaitap mPresenterBaitap;
     Realm mRealm;
     List<Cauhoi> mListCauhoiRemote;
+    Baitap_Tuan objBaitaptuan = new Baitap_Tuan();
 
     @Override
     public int setContentViewId() {
@@ -151,6 +157,16 @@ public class ActivityExercisesDetail extends BaseActivity implements ImlExerDeta
                     showDialogNotify("Thông báo", "Bài giảng tuần này chưa sẵn sàng");
                 }
 
+            }
+        });
+        btnLamlai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (objBaitaptuan!=null)
+                KeyboardUtil.play_click_button(ActivityExercisesDetail.this);
+                Intent intent = new Intent(ActivityExercisesDetail.this, ActivityStartBaitap.class);
+                intent.putExtra(Constants.KEY_SEND_BAITAPTUAN, objBaitaptuan);
+                startActivity(intent);
             }
         });
         btn_guilai.setOnClickListener(new View.OnClickListener() {
@@ -293,10 +309,10 @@ public class ActivityExercisesDetail extends BaseActivity implements ImlExerDeta
         hideDialogLoading();
         if (mLis.getsERROR().equals("0000")) {
             Log.i(TAG, "show_submit_execercise: success");
-            objExer.setIsTrangthailambai("3");
-            mRealm.beginTransaction();
-            mRealm.copyToRealmOrUpdate(objExer);
-            mRealm.commitTransaction();
+//            objExer.setIsTrangthailambai("3");
+//            mRealm.beginTransaction();
+//            mRealm.copyToRealmOrUpdate(objExer);
+//            mRealm.commitTransaction();
             btn_guilai.setVisibility(View.GONE);
             showDialogNotify("Thông báo", mLis.getsRESULT());
         } else {
@@ -313,6 +329,12 @@ public class ActivityExercisesDetail extends BaseActivity implements ImlExerDeta
         if (objRes != null && objRes.getDETAILS() != null) {
             btn_xemlaibai.setEnabled(true);
             obj = objRes.getDETAILS();
+            objBaitaptuan.setsID(obj.getsID());
+            objBaitaptuan.setsREQUIREMENT(obj.getsREQUIREMENT());
+            objBaitaptuan.setsNAME(obj.getsNAME());
+            objBaitaptuan.setsSUBJECT_ID(obj.getsSUBJECT_ID());
+            objBaitaptuan.setsWEEK_ID(obj.getsWEEK_ID());
+            objBaitaptuan.setsLEVEL_ID(obj.getsLEVEL_ID());
             mListCauhoiRemote.clear();
             mListCauhoiRemote.addAll(obj.getLisPARTS());
             txt_debai.setText(Html.fromHtml(obj.getsNAME()));

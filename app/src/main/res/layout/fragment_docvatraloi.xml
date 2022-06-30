@@ -34,7 +34,7 @@
             android:layout_marginRight="@dimen/dp5"
             android:layout_weight="1"
             android:background="@drawable/spr_lable_lambai"
-            android:fontFamily="@font/roboto_bold"
+            style="@style/text_font_utm_avo_bold"
             android:gravity="center"
             android:padding="@dimen/dp5"
             android:textColor="@color/lable_lambai"

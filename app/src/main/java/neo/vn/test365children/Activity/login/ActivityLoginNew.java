@@ -117,6 +117,7 @@ public class ActivityLoginNew extends BaseActivity implements ImlLoginNew.View, 
             SharedPrefs.getInstance().put(Constants.KEY_ISLOGIN, true);
             SharedPrefs.getInstance().put(Constants.KEY_SAVE_CHIL, mLis);
             SharedPrefs.getInstance().put(Constants.KEY_USER_ME, sUserMe);
+            SharedPrefs.getInstance().put(Constants.MA_HS, phoneV);
             SharedPrefs.getInstance().put(Constants.KEY_USER_CON, sUserCon);
             SharedPrefs.getInstance().put(Constants.KEY_PASSWORD, sPassword);
             InfoKids objKid = mLis.getsObjInfoKid();

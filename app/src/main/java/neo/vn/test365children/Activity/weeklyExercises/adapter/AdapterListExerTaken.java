@@ -41,7 +41,7 @@ public class AdapterListExerTaken extends RecyclerView.Adapter<AdapterListExerTa
     @Override
     public void onBindViewHolder(TopicViewHoder holder, int position) {
         ExerTakenObj airport = listAirport.get(position);
-        holder.tvTitleExer.setText("Tuần "+airport.getTitle());
+        holder.tvTitleExer.setText(""+airport.getTitle());
         AdapterExerTaken checkBoxAdapter = new AdapterExerTaken(airport.getmList(), context);
         holder.rcvExerLast.setAdapter(checkBoxAdapter);
 

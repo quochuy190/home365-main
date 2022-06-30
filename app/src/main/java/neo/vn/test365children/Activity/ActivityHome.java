@@ -1,11 +1,8 @@
 package neo.vn.test365children.Activity;
 
-import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
@@ -14,10 +11,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,7 +20,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -42,7 +36,6 @@ import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import butterknife.BindView;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -55,8 +48,6 @@ import neo.vn.test365children.Activity.login.ActivitySelectLevelTry;
 import neo.vn.test365children.Activity.login.ActivityUpdateInforChil;
 import neo.vn.test365children.Activity.luyenthi.Activity_Menu_Luyenthi;
 import neo.vn.test365children.Activity.skill.Activity_Menu_Skill;
-import neo.vn.test365children.Activity.untility_menu.Activity_Information;
-import neo.vn.test365children.Activity.weeklyExercises.ActivityChoseBook;
 import neo.vn.test365children.Activity.weeklyExercises.ActivityWeeklyExer;
 import neo.vn.test365children.Adapter.AdapterUserLogin;
 import neo.vn.test365children.App;
@@ -107,7 +98,7 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
     private static final String TAG = "ActivityHome";
     @BindView(R.id.btn_lambaitap)
     ConstraintLayout btn_lambaitap;
-//    @BindView(R.id.btn_ketquahoctap)
+    //    @BindView(R.id.btn_ketquahoctap)
 //    Button btn_ketquahoctap;
 //    @BindView(R.id.btn_vuichoi)
 //    Button btn_vuichoi;
@@ -138,8 +129,8 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
     PresenterSticker mPresenter;
     PresenterBaitap mPresenterBaitap;
     PresenterLogin mPresenterLogin;
-    String sUserMe="", sUserCon, sPassword, id;
-    String idUserMe="", typeVip="";
+    String sUserMe = "", sUserCon, sPassword, id;
+    String idUserMe = "", typeVip = "";
     private Presenter_Init_Login mPresenter_init;
     boolean isLogin;
     boolean isMute = false;
@@ -174,7 +165,7 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
             check_notify_update_child();
         }
         // Animation();
-       // check_update_token_push();
+        // check_update_token_push();
         check_init_login();
         initCheckExerPlaying();
         //  initConfig();
@@ -185,13 +176,15 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
 
     @BindView(R.id.btn_call)
     CircleImageView btn_call;
+    @BindView(R.id.llPhone)
+    ConstraintLayout llPhone;
     private AnimationDrawable anim;
 
-    private void loginVipMobi(){
+    private void loginVipMobi() {
         String phone = SharedPrefs.getInstance().get(Constants.PHONE_VIP, String.class);
         String password = SharedPrefs.getInstance().get(Constants.PASSWORD_VIP, String.class);
         String codeStudent = SharedPrefs.getInstance().get(Constants.USERCHILD_VIP, String.class);
-        mPresenterLogin.apiLoginVip(phone, password,idUserMe, codeStudent);
+        mPresenterLogin.apiLoginVip(phone, password, idUserMe, codeStudent);
     }
 
     private void Animation() {
@@ -236,6 +229,7 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
     }
 
     private List<ChildX> listChilsX = new ArrayList<>();
+
     private void init_lis_login() {
         //  lisUserLogin.add(null);
         adapter = new AdapterUserLogin(listChilsX, this);
@@ -257,7 +251,8 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
                     sPassword = obj.getsPASSWORD();
                     if (sUserMe != null && sUserCon != null && sPassword != null) {
                         showDialogLoading();
-                        if (SharedPrefs.getInstance().get(Constants.IS_VIP, Boolean.class)) loginVipMobi();
+                        if (SharedPrefs.getInstance().get(Constants.IS_VIP, Boolean.class))
+                            loginVipMobi();
                         else mPresenterLogin.api_login_restful(sUserMe, sUserCon, sPassword);
                     }
                     gone_multil_user();
@@ -381,7 +376,7 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
         } else {
             if (isNetwork()) {
                 showDialogLoading();
-                if (!SharedPrefs.getInstance().get(Constants.IS_VIP, Boolean.class))get_init();
+                if (!SharedPrefs.getInstance().get(Constants.IS_VIP, Boolean.class)) get_init();
             }
         }
         sUserMe = SharedPrefs.getInstance().get(Constants.KEY_USER_ME, String.class);
@@ -457,7 +452,7 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
                 }
                 // deserializes json into target2
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -485,10 +480,10 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
         // Config.BASE_URL = SharedPrefs.getInstance().get(Constants.KEY_URL_BASE, String.class);
     }
 
-    private static List<ChildX> getFilterOutput(List<ChildX> list, String predicate){
+    private static List<ChildX> getFilterOutput(List<ChildX> list, String predicate) {
         List<ChildX> xList = new ArrayList<>();
-        for (ChildX childX: list){
-            if (childX.getUSERNAME().equals(predicate)){
+        for (ChildX childX : list) {
+            if (childX.getUSERNAME().equals(predicate)) {
                 xList.add(childX);
             }
         }
@@ -505,6 +500,11 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
         sUserMe = SharedPrefs.getInstance().get(Constants.KEY_USER_ME, String.class);
         sUserCon = SharedPrefs.getInstance().get(Constants.KEY_USER_CON, String.class);
         sPassword = SharedPrefs.getInstance().get(Constants.KEY_PASSWORD, String.class);
+        String maHS = SharedPrefs.getInstance().get(Constants.MA_HS, String.class);
+        if (maHS != null)
+            tvNameHome.setText("MHS: " + maHS);
+        else
+            tvNameHome.setText("MHS: ");
         if (chil != null && chil.getsObjInfoKid() != null) {
             InfoKids obj = chil.getsObjInfoKid();
             obj.setsUSER_MOTHER(sUserMe);
@@ -514,22 +514,22 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
             mRealm.commitTransaction();
             if (obj.getsUSERNAME() != null && obj.getsUSERNAME().length() > 0) {
                 if (obj.getsLEVEL_ID() == null || obj.getsLEVEL_ID().length() == 0 || obj.getsLEVEL_ID().equals("0")) {
-                    tvNameHome.setText("MHS: "+obj.getsUSERNAME());
+                    // tvNameHome.setText("MHS: "+obj.getsUSERNAME());
                     tvLeverHome.setText("Lớp:");
                 } else {
-                    tvNameHome.setText("MHS: "+obj.getsUSERNAME());
-                    tvLeverHome.setText("Lớp: "+obj.getsLEVEL_ID());
+                    // tvNameHome.setText("MHS: "+obj.getsUSERNAME());
+                    tvLeverHome.setText("Lớp: " + obj.getsLEVEL_ID());
                 }
             } else {
                 if (obj.getsID() != null)
                     if (obj.getsLEVEL_ID() == null || obj.getsLEVEL_ID().length() == 0 || obj.getsLEVEL_ID().equals("0")) {
-                       // tv_title_bar.setText("Mã HS: " + obj.getsUSERNAME());
-                        tvNameHome.setText("MHS: "+obj.getsID());
+                        // tv_title_bar.setText("Mã HS: " + obj.getsUSERNAME());
+                        //tvNameHome.setText("MHS: "+obj.getsID());
                         tvLeverHome.setText("Lớp:");
                     } else {
                         //tv_title_bar.setText("Mã HS: " + obj.getsUSERNAME() + " - Lớp " + obj.getsLEVEL_ID());
-                        tvNameHome.setText("MHS: "+obj.getsID());
-                        tvLeverHome.setText("Lớp: "+obj.getsLEVEL_ID());
+                        //  tvNameHome.setText("MHS: "+obj.getsID());
+                        tvLeverHome.setText("Lớp: " + obj.getsLEVEL_ID());
                     }
             }
 
@@ -596,8 +596,8 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
 //        btn_ketquahoctap.setOnClickListener(this);
 //        btn_vuichoi.setOnClickListener(this);
         img_change_child.setOnClickListener(this);
-       // btn_bxh.setOnClickListener(this);
-        btn_call.setOnClickListener(v -> {
+        // btn_bxh.setOnClickListener(this);
+        llPhone.setOnClickListener(v -> {
 //                StringUtil.call_phone(ActivityHome.this, "0845600365");
             Intent callIntent = new Intent(Intent.ACTION_DIAL);
             callIntent.setData(Uri.parse("tel:0845600365"));
@@ -633,7 +633,7 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
 //        show_multil_user();
 //    }
 
-    private void showChooseClass(){
+    private void showChooseClass() {
         start_get_class();
     }
 
@@ -677,8 +677,7 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
                     }
                 }
 
-             //   startActivity(new Intent(ActivityHome.this, ActivityMenuBaitap.class));
-
+                //   startActivity(new Intent(ActivityHome.this, ActivityMenuBaitap.class));
 
 
                 break;
@@ -797,7 +796,7 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
                     public void onClickYesDialog() {
                         StringUtil.share_app(ActivityHome.this,
                                 "Ứng dụng học trực tuyến Home365 rất HAY và MIỄN PHÍ," +
-                                " tải app tại https://home365.online/app");
+                                        " tải app tại https://home365.online/app");
                     }
 
                     @Override
@@ -949,7 +948,8 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            if (SharedPrefs.getInstance().get(Constants.IS_VIP, Boolean.class)) loginVipMobi();
+                            if (SharedPrefs.getInstance().get(Constants.IS_VIP, Boolean.class))
+                                loginVipMobi();
                             else mPresenterLogin.api_login_restful(sUserMe, sUserCon, sPassword);
                         }
                     }, 1000);
@@ -1122,7 +1122,7 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
                             // Get new FCM registration token
                             String token = task.getResult();
                             SharedPrefs.getInstance().put(Constants.KEY_TOKEN, token);
-                            Log.e(TAG, "sToken: "+token );
+                            Log.e(TAG, "sToken: " + token);
                             mPresenter_init.api_init(BuildConfig.VERSION_NAME, android.os.Build.BRAND + " " + android.os.Build.MODEL,
                                     token, "2", android.os.Build.VERSION.RELEASE, id);
                         }
@@ -1141,10 +1141,10 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
                 SharedPrefs.getInstance().put(Constants.KEY_USER_ME, sUserMe);
                 SharedPrefs.getInstance().put(Constants.KEY_USER_CON, sUserCon);
                 SharedPrefs.getInstance().put(Constants.KEY_PASSWORD, sPassword);
-                if (mLis.getsObjInfoKid() != null){
+                if (mLis.getsObjInfoKid() != null) {
                     InfoKids child = mLis.getsObjInfoKid();
-                    if (child.getsPARENT_ID()!=null) idUserMe = child.getsPARENT_ID();
-                    if (child.getVIP_NAME()!=null) typeVip =child.getVIP_NAME();
+                    if (child.getsPARENT_ID() != null) idUserMe = child.getsPARENT_ID();
+                    if (child.getVIP_NAME() != null) typeVip = child.getVIP_NAME();
 //                    if (SharedPrefs.getInstance().get(Constants.IS_VIP, Boolean.class)){
 //                        if (child.getIS_VIP() == 0) Glide.with(this).load(R.drawable.vip_inactive).into(img_mute);
 //                        if (child.getIS_VIP() == 1) Glide.with(this).load(R.drawable.vip_active).into(img_mute);
@@ -1186,15 +1186,15 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
     @Override
     public void show_api_login_Vip(ObjLoginVip loginVip) {
         hideDialogLoading();
-        if (loginVip!=null){
-            if (loginVip.getERROR().equals("0000")){
+        if (loginVip != null) {
+            if (loginVip.getERROR().equals("0000")) {
 //                SharedPrefs.getInstance().put(Constants.KEY_ISLOGIN, true);
-                if (!loginVip.getINFO().getCHILDS().isEmpty()){
+                if (!loginVip.getINFO().getCHILDS().isEmpty()) {
                     ChildX childX = loginVip.getINFO().getCHILDS().get(0);
                     SharedPrefs.getInstance().put(Constants.KEY_USER_ME, loginVip.getINFO().getUSERNAME());
                     List<ChildX> listChild = getFilterOutput(loginVip.getINFO().getCHILDS(),
                             SharedPrefs.getInstance().get(Constants.KEY_USER_CON, String.class));
-                    if (listChild.isEmpty()){
+                    if (listChild.isEmpty()) {
                         SharedPrefs.getInstance().put(Constants.KEY_USER_CON, childX.getUSERNAME());
                         SharedPrefs.getInstance().put(Constants.KEY_PASSWORD, childX.getPASSWORD());
                     }
@@ -1206,7 +1206,7 @@ public class ActivityHome extends BaseActivity implements View.OnClickListener,
                     mPresenterLogin.api_login_restful(sUserMe, sUserCon, sPassword);
                     listChilsX.clear();
                     listChilsX.addAll(loginVip.getINFO().getCHILDS());
-                }else {
+                } else {
                     get_init();
                 }
             }

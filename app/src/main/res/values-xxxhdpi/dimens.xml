@@ -42,7 +42,7 @@
     <dimen name="text_login">18sp</dimen>
     <!--<layout menu làm bài tập-->
     <dimen name="margin_mute_lambai">60dp</dimen>
-    <dimen name="width_item_menu">100dp</dimen>
+    <dimen name="width_item_menu">95dp</dimen>
     <dimen name="margin_item">6dp</dimen>
     <dimen name="txt_menu_baitap">15sp</dimen>
     <!--activity làm bài tập-->
@@ -157,7 +157,7 @@
     <dimen name="width_logo">260dp</dimen>
     <dimen name="height_logo">100dp</dimen>
     <dimen name="margin_list_user">110dp</dimen>
-    <dimen name="text_lable_lambai">21sp</dimen>
+    <dimen name="text_lable_lambai">19sp</dimen>
     <!--Xem lại bài tập-->
     <dimen name="txt_lable_exer">22sp</dimen>
     <dimen name="img_avata_home">55dp</dimen>

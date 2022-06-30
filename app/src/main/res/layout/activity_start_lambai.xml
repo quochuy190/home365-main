@@ -39,7 +39,7 @@
         app:layout_constraintStart_toEndOf="@id/txt_lable_mon"
         app:layout_constraintTop_toTopOf="@id/gl_1"  />
     <TextView
-        android:fontFamily="@font/roboto_bold"
+        style="@style/text_font_utm_avo_bold"
         app:layout_constraintTop_toTopOf="@+id/gl_1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -54,7 +54,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:fontFamily="@font/roboto_bold"
+        style="@style/text_font_utm_avo_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_lable_mon"
@@ -78,6 +78,7 @@
         app:layout_constraintRight_toRightOf="@id/gl_4"
         app:layout_constraintTop_toTopOf="@id/txt_tuan">
         <TextView
+            style="@style/text_font_utm_avo"
             android:maxLines="2"
             android:gravity="center"
             android:id="@+id/txt_noidung"
@@ -88,6 +89,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/txt_app" />
         <TextView
+            style="@style/text_font_utm_avo"
             android:maxLines="3"
             android:gravity="center"
             android:id="@+id/txt_muctieu"
@@ -98,6 +100,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/txt_app" />
         <TextView
+            style="@style/text_font_utm_avo"
             android:visibility="gone"
             android:gravity="center"
             android:id="@+id/txt_soluongcauhoi"
@@ -109,13 +112,12 @@
             android:textSize="@dimen/txt_app" />
 
         <TextView
-            android:fontFamily="@font/roboto_bold"
-            android:textStyle="italic"
+            android:fontFamily="@font/utm_avo_italic"
             android:gravity="center"
             android:id="@+id/txt_thoigianlambai"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/dp5"
+            android:paddingVertical="@dimen/dp5"
             android:text="Thời gian làm bài: 30 phút"
             android:textColor="@color/black"
             android:textSize="@dimen/txt_app" />
@@ -149,9 +151,9 @@
         app:layout_constraintStart_toStartOf="@id/btn_start_lambai"
         app:layout_constraintTop_toTopOf="@id/btn_start_lambai" />
     <TextView
-        android:textSize="@dimen/text_size_update_infor_child"
+        android:textSize="@dimen/text_15sp"
         android:gravity="center"
-        android:fontFamily="@font/roboto_bold"
+        style="@style/text_font_utm_avo_bold"
         android:text="Bắt đầu làm bài"
         android:textColor="@color/white"
         android:padding="@dimen/dp5"
@@ -194,12 +196,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:fontFamily="@font/roboto_bold"
+            style="@style/text_font_utm_avo_bold"
             android:gravity="center"
             android:padding="@dimen/dp5"
             android:text="Xem bài giảng"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size_update_infor_child"
+            android:textSize="@dimen/text_15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/icon_play"
@@ -233,9 +235,9 @@
         app:layout_constraintStart_toStartOf="@id/btn_share"
         app:layout_constraintTop_toTopOf="@id/btn_share" />
     <TextView
-        android:textSize="@dimen/text_size_update_infor_child"
+        android:textSize="@dimen/text_15sp"
         android:gravity="center"
-        android:fontFamily="@font/roboto_bold"
+        style="@style/text_font_utm_avo_bold"
         android:text="Chia sẻ bài tập"
         android:textColor="@color/white"
         android:padding="@dimen/dp5"

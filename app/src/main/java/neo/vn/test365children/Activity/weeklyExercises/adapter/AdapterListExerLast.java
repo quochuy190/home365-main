@@ -2,13 +2,17 @@ package neo.vn.test365children.Activity.weeklyExercises.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -39,13 +43,14 @@ public class AdapterListExerLast extends RecyclerView.Adapter<AdapterListExerLas
         return new TopicViewHoder(view);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onBindViewHolder(TopicViewHoder holder, int position) {
         ExerLastObj airport = listAirport.get(position);
         holder.tvTitleExer.setText("Tuần "+airport.getTitle());
-        AdapterExerLast checkBoxAdapter = new AdapterExerLast(airport.getmList(), context);
+        AdapterExerLast checkBoxAdapter = new AdapterExerLast( context);
         holder.rcvExerLast.setAdapter(checkBoxAdapter);
-
+        checkBoxAdapter.updateList(airport.getmList());
         holder.imgDown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

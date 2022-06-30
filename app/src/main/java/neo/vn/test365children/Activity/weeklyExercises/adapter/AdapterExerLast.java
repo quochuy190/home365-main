@@ -37,9 +37,7 @@ public class AdapterExerLast extends RecyclerView.Adapter<AdapterExerLast.TopicV
     private List<Baitap_Tuan> listData;
     private Context context;
 
-    public AdapterExerLast(List<Baitap_Tuan> listAirport, Context context) {
-        this.mList = listAirport;
-        this.listData = listAirport;
+    public AdapterExerLast( Context context) {
         this.context = context;
     }
 
@@ -116,8 +114,8 @@ public class AdapterExerLast extends RecyclerView.Adapter<AdapterExerLast.TopicV
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void updateList(List<Baitap_Tuan> list) {
-        mList.clear();
-        listData.clear();
+        mList = new ArrayList<>();
+        listData = new ArrayList<>();
         listData.addAll(list);
         List<Baitap_Tuan> mListToan = listData.stream()
                 .filter(p -> p.getsSUBJECT_ID().equals("1")).collect(Collectors.toList());

@@ -1,42 +1,33 @@
 {
   "project_info": {
-    "project_number": "539762116524",
-    "firebase_url": "https://home365kid.firebaseio.com",
-    "project_id": "home365kid",
-    "storage_bucket": "home365kid.appspot.com"
+    "project_number": "70709935688",
+    "project_id": "bacgiang365-6f9a3",
+    "storage_bucket": "bacgiang365-6f9a3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:539762116524:android:ac422cae6b7fca0f",
+        "mobilesdk_app_id": "1:70709935688:android:a147f65e978b442430227d",
         "android_client_info": {
-          "package_name": "neo.vn.test365children"
+          "package_name": "neo.vn.bacgiang365"
         }
       },
       "oauth_client": [
         {
-          "client_id": "539762116524-6sv00f0b1sl1aa5fp72temtqr44ui1ve.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "neo.vn.test365children",
-            "certificate_hash": "6231a951cfc250f1a6b802ad524f49fd3bbda13a"
-          }
-        },
-        {
-          "client_id": "539762116524-3d7k822m2jpmnumqah47l25nggq8ceab.apps.googleusercontent.com",
+          "client_id": "70709935688-2t9dp03jv3h7q2fmo4b451jggkrdhcu7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBTsco6NSTHy1DTcO8GdUM4vxMlp3aiNV4"
+          "current_key": "AIzaSyDGXDri0SmIV28B9MBdemAe0hwQJv7SLG0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "539762116524-3d7k822m2jpmnumqah47l25nggq8ceab.apps.googleusercontent.com",
+              "client_id": "70709935688-2t9dp03jv3h7q2fmo4b451jggkrdhcu7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

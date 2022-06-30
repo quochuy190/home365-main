@@ -182,7 +182,8 @@ public class FragmentDocvaTraloi extends BaseFragment
         String pish = "<html><body  align='center'>";
         String pas = "</body></html>";
         String text = "<html><head>"
-                + "<style type=\"text/css\">body{color: #fff;}"
+                + "<style type=\"text/css\">@font-face {font-family: MyFont;src: url(\"file:///android_asset/utm_avo.ttf\")}body {font-family: MyFont;font-size: medium;text-align: center;color: #fff;}</style>"
+              //  + "<style type=\"text/css\">body{color: #fff;}"
                 + "</style></head>"
                 + "<body>"
                 + "<div>"
@@ -240,6 +241,7 @@ public class FragmentDocvaTraloi extends BaseFragment
         String pish = "<html><body  align='center'>";
         String pas = "</body></html>";
         String text = "<html><head>"
+                + "<style type=\"text/css\">@font-face {font-family: MyFont;src: url(\"file:///android_asset/utm_avo.ttf\")}body {font-family: MyFont;font-size: medium;text-align: center;}</style>"
                 + "</style></head>"
                 + "<body>"
                 + "<div>"

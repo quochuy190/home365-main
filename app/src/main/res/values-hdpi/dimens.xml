@@ -42,7 +42,7 @@
     <dimen name="text_login">15sp</dimen>
     <!--<layout menu làm bài tập-->
     <dimen name="margin_mute_lambai">45dp</dimen>
-    <dimen name="width_item_menu">90dp</dimen>
+    <dimen name="width_item_menu">95dp</dimen>
     <dimen name="margin_item">5dp</dimen>
     <dimen name="txt_menu_baitap">13sp</dimen>
     <!--activity làm bài tập-->

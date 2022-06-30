@@ -32,6 +32,7 @@
         app:layout_constraintWidth_percent="0.6">
 
         <TextView
+            android:fontFamily="@font/utm_avo"
             android:textStyle="bold"
             android:layout_marginTop="@dimen/dp10"
             android:padding="@dimen/dp5"
@@ -70,6 +71,7 @@
                 android:src="@drawable/icon_username" />
 
             <EditText
+                style="@style/text_font_utm_avo"
                 android:id="@+id/edt_user_con"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -111,6 +113,7 @@
                 android:src="@drawable/icon_password" />
 
             <EditText
+                style="@style/text_font_utm_avo"
                 android:focusable="true"
                 android:id="@+id/edt_user_pass"
                 android:layout_width="match_parent"
@@ -146,7 +149,7 @@
             android:id="@+id/txtForgotPass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:fontFamily="@font/utm_avo"
             android:background="@drawable/spr_click_textview"
             android:paddingVertical="@dimen/dp5"
             android:text="Quên mật khẩu"
@@ -160,12 +163,12 @@
 
 
         <Button
+            style="@style/text_font_utm_avo_bold"
             android:layout_marginBottom="@dimen/dp20"
             android:id="@+id/img_dangnhap"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/spr_button_oragen_click"
-            android:fontFamily="@font/roboto_bold"
             android:text="@string/txt_login"
             android:textColor="@color/white"
             android:textSize="@dimen/text_login"
@@ -178,6 +181,7 @@
             app:layout_constraintWidth_percent="0.5" />
 
         <TextView
+            android:fontFamily="@font/utm_avo"
             android:layout_marginTop="@dimen/dp5"
             android:padding="@dimen/dp5"
             android:id="@+id/txtRegister"

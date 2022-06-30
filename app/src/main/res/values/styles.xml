@@ -11,11 +11,29 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="android:textViewStyle">@style/TextViewStyle</item>
+        <item name="android:buttonStyle">@style/ButtonStyle</item>
+    </style>
 
+    <style name="TextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/utm_avo</item>
+    </style>
+
+    <style name="ButtonStyle" parent="android:Widget.Holo.Button">
+        <item name="android:fontFamily">@font/utm_avo_bold</item>
     </style>
     <style name="styleA">
         <item name="android:textSize">@dimen/txt_kow_easy</item>
         <item name="android:fontFamily">@font/aclonica_regular</item>
+    </style>
+    <style name="text_font_utm_avo">
+        <item name="android:fontFamily">@font/utm_avo</item>
+    </style>
+    <style name="text_font_utm_avo_bold">
+        <item name="android:fontFamily">@font/utm_avo_bold</item>
+    </style>
+    <style name="text_font_utm_avo_in">
+        <item name="android:fontFamily">@font/utm_avo_italic</item>
     </style>
     <style name="TextLabel" parent="Widget.Design.TextInputLayout">
         <!-- Hint color and label color in FALSE state -->
@@ -52,6 +70,10 @@
         <item name="android:textSize">@dimen/text_16sp</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="MyStyleDialogAlert" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:fontFamily">@font/utm_avo</item>
     </style>
 
 </resources>

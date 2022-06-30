@@ -186,7 +186,7 @@ public class FragmentDienvaochotrong extends BaseFragment {
                 "}\n" +
                 "</style>" +*/
                         "<body>\n" +
-                        "<div  style='text-align:center;'>" +
+                        "<style type=\"text/css\">@font-face {font-family: MyFont;src: url(\"file:///android_asset/utm_avo.ttf\")}body {font-family: MyFont;font-size: medium;text-align: center;}</style></head>"+
                         sHtml +
                         "</div>" +
                         "    <script>\n" +

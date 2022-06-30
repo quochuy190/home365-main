@@ -52,7 +52,7 @@
             android:id="@+id/tvNameHome"
             android:textSize="@dimen/text_20sp"
             android:textColor="@color/white"
-            android:fontFamily="@font/aclonica_regular"
+            android:fontFamily="@font/utm_avo_bold"
             tools:text="MHS: 14389752"
             app:layout_constraintEnd_toStartOf="@id/viewCen"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -66,7 +66,7 @@
             android:id="@+id/tvLeverHome"
             android:textSize="@dimen/text_20sp"
             android:textColor="@color/white"
-            android:fontFamily="@font/aclonica_regular"
+            android:fontFamily="@font/utm_avo_bold"
             tools:text="Lớp 3"
             app:layout_constraintEnd_toStartOf="@id/imgChangeLever"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -358,6 +358,7 @@
 
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:visibility="gone"
         android:id="@+id/btn_call"
         android:layout_width="@dimen/dp45"
         android:layout_height="@dimen/dp45"
@@ -368,5 +369,42 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.13" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:paddingHorizontal="@dimen/dp10"
+        android:layout_margin="@dimen/dp20"
+        android:id="@+id/llPhone"
+        android:background="@drawable/bg_name_home_phone"
+        app:layout_constraintWidth_percent="0.45"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp">
+
+        <TextView
+            android:id="@+id/tvLablePhone"
+            android:textSize="@dimen/text_18sp"
+            android:textColor="@color/white"
+            android:text="Hỗ trợ: "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:gravity="center"
+            android:textSize="@dimen/text_18sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/utm_avo_bold"
+            android:text="084 560 0365"
+            app:layout_constraintStart_toEndOf="@id/tvLablePhone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

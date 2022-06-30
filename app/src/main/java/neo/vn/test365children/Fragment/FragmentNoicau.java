@@ -597,7 +597,7 @@ public class FragmentNoicau extends BaseFragment implements View.OnTouchListener
         webSettings.setDefaultFontSize(18);
         webSettings.setTextZoom((int) (webSettings.getTextZoom() * 1.2));
         /* <html><body  align='center'>You scored <b>192</b> points.</body></html>*/
-        String pish = "<html><body  align='center'>";
+        String pish = "<html><head><style type=\"text/css\">@font-face {font-family: MyFont;src: url(\"file:///android_asset/utm_avo.ttf\")}body {font-family: MyFont;font-size: medium;text-align: center;}</style></head><body>";
         String pas = "</body></html>";
         webview_debai.loadDataWithBaseURL("", pish + StringUtil.convert_html(link_web) + pas,
                 "text/html", "UTF-8", "");
